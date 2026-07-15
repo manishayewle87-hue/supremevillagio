@@ -32,6 +32,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.supremesvillagio.com"),
   title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
   description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
   keywords: ["Supreme Villagio", "4 BHK Villas Pune", "5 BHK Villas Somatane", "Luxury Villas Pune", "Townhouses Somatane", "Real Estate Pune"],
@@ -190,7 +191,7 @@ const breadcrumbSchema = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://supremevillagio.com/#organization",
+  "@id": "https://www.supremesvillagio.com/#organization",
   "name": "Supreme Universal",
   "url": "https://www.supremeuniversal.com/",
   "logo": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
@@ -204,25 +205,25 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://supremevillagio.com/#website",
-  "url": "https://supremevillagio.com/",
+  "@id": "https://www.supremesvillagio.com/#website",
+  "url": "https://www.supremesvillagio.com/",
   "name": "Supreme Villagio | Luxury Villas in Somatane",
   "publisher": {
-    "@id": "https://supremevillagio.com/#organization"
+    "@id": "https://www.supremesvillagio.com/#organization"
   }
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  "@id": "https://supremevillagio.com/#localbusiness",
+  "@id": "https://www.supremesvillagio.com/#localbusiness",
   "name": "Supreme Villagio",
   "image": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
-  "url": "https://supremevillagio.com/",
+  "url": "https://www.supremesvillagio.com/",
   "telephone": "+91 7744009295",
   "priceRange": "₹2.89 Cr*",
   "parentOrganization": {
-    "@id": "https://supremevillagio.com/#organization"
+    "@id": "https://www.supremesvillagio.com/#organization"
   },
   "address": {
     "@type": "PostalAddress",

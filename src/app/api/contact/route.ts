@@ -10,7 +10,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Name and Phone are required" }, { status: 400 });
     }
 
-    const googleScriptUrl = "https://script.google.com/macros/s/AKfycby5pHie-zIp_l_M6XFu33Bow6UIu6WlaARW5AE8FHprHHf1VeRFn7okcXuUc2hx0oiXGg/exec";
+    const googleScriptUrl = "https://script.google.com/macros/s/AKfycbwKPSo6EIza30iuD-nMQfcRMLKUDbolQaQkZWk6VCR0KHYXQ54YWCJC2ZcnYX0kCzcJyg/exec";
 
     const response = await fetch(googleScriptUrl, {
       method: "POST",

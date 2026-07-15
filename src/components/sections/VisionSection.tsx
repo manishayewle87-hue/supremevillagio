@@ -21,7 +21,7 @@ export default function VisionSection({ typology = "luxury homes" }: { typology?
     <section 
       id="vision" 
       ref={sectionRef} 
-      className="py-32 md:py-48 bg-cream text-charcoal relative overflow-hidden border-t border-charcoal/10"
+      className="py-20 md:py-48 bg-cream text-charcoal relative overflow-hidden border-t border-charcoal/10"
     >
       <div className="absolute top-12 left-0 w-full px-6 md:px-12">
          <AnimatedLine />

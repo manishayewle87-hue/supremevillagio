@@ -38,7 +38,7 @@ export default function DeveloperLegacySection() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="legacy" className="py-32 bg-background relative overflow-hidden" ref={containerRef}>
+    <section id="legacy" className="py-20 md:py-32 bg-background relative overflow-hidden" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <motion.p 

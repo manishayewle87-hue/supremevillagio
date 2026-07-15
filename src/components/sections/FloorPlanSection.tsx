@@ -38,7 +38,7 @@ export default function FloorPlanSection() {
   const { openContactModal } = useModal();
 
   return (
-    <section id="residences" className="py-32 bg-charcoal text-white relative border-t border-white/10">
+    <section id="residences" className="py-20 md:py-32 bg-charcoal text-white relative border-t border-white/10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-4">The Residences</p>

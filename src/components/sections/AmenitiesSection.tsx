@@ -53,7 +53,7 @@ export default function AmenitiesSection() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="amenities" className="py-32 bg-background relative" ref={containerRef}>
+    <section id="amenities" className="py-20 md:py-32 bg-background relative" ref={containerRef}>
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl mb-16">
           <motion.p 

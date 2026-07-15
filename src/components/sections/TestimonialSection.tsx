@@ -28,7 +28,7 @@ const TESTIMONIALS = [
 
 export default function TestimonialSection() {
   return (
-    <section className="py-32 bg-charcoal text-white relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-charcoal text-white relative overflow-hidden">
       {/* Massive Background Quote Icon */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/[0.03] pointer-events-none">
         <Quote size={400} />

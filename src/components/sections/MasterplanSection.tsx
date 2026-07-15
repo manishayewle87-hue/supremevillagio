@@ -20,7 +20,7 @@ export default function MasterplanSection() {
   const { openContactModal } = useModal();
 
   return (
-    <section id="residences" ref={containerRef} className="py-32 bg-cream text-charcoal relative overflow-hidden">
+    <section id="residences" ref={containerRef} className="py-20 md:py-32 bg-cream text-charcoal relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm uppercase tracking-widest text-gold font-bold mb-4">

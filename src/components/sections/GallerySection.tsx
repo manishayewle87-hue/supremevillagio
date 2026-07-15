@@ -27,7 +27,7 @@ export default function GallerySection() {
   const y3 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
 
   return (
-    <section id="gallery" ref={containerRef} className="py-32 bg-charcoal text-cream relative overflow-hidden">
+    <section id="gallery" ref={containerRef} className="py-20 md:py-32 bg-charcoal text-cream relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10 mb-24">
         <div className="flex flex-col md:flex-row justify-between items-end">
           <div>

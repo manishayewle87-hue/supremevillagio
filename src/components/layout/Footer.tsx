@@ -84,11 +84,10 @@ export default function Footer() {
             <address className="not-italic text-sm text-stone space-y-2">
               <p>Supreme Villagio Site,</p>
               <p>Luxury Estate Road, Sector 1,</p>
-              <p>City Center, 400001</p>
-              <p className="mt-4 pt-4 border-t border-charcoal-light">
-                <a href="mailto:propsmartrealty@gmail.com" className="hover:text-gold transition-colors block break-all">
-                  propsmartrealty@gmail.com
-                </a>
+              <p>
+                <button onClick={() => window.dispatchEvent(new Event('open-contact-modal'))} className="hover:text-gold transition-colors text-left flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> Request a Callback / Email Us
+                </button>
                 <a href="tel:+917744009295" className="hover:text-gold transition-colors block mt-2 font-medium">
                   +91 7744009295
                 </a>

@@ -48,7 +48,7 @@ export default function TermsOfServicePage() {
           <h2 className="text-2xl font-serif text-charcoal mt-10 mb-4">5. Contact Information</h2>
           <p className="mb-6">
             For any queries regarding these Terms of Service, please reach out to us:<br /><br />
-            <strong>Email:</strong> propsmartrealty@gmail.com<br />
+            <strong>Email:</strong> Use the contact form on our website<br />
             <strong>Phone:</strong> +91 7744009295
           </p>
         </div>

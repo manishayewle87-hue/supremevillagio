@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-2xl font-serif text-charcoal mt-10 mb-4">5. Contact Us</h2>
           <p className="mb-6">
             If you have any questions about this privacy policy or our privacy practices, please contact us at:<br /><br />
-            <strong>Email:</strong> propsmartrealty@gmail.com<br />
+            <strong>Email:</strong> Use the contact form on our website<br />
             <strong>Phone:</strong> +91 7744009295
           </p>
         </div>

@@ -1,44 +1,51 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
-    // Server-side validation can be added here
     const { name, phone, email, typology } = body;
 
     if (!name || !phone) {
       return NextResponse.json({ error: "Name and Phone are required" }, { status: 400 });
     }
 
-    // --- CRM INTEGRATION STUB ---
-    // This payload is structured for immediate POST requests to CRMs like Salesforce (Web-to-Lead), 
-    // Zoho, or HubSpot.
-    const crmPayload = {
-      lead_source: "Supreme Villagio Website",
-      campaign_id: "CAMP_SV_2026",
-      first_name: name.split(' ')[0],
-      last_name: name.split(' ').slice(1).join(' ') || "N/A",
-      mobile_number: phone,
-      email_address: email || "",
-      interested_typology: typology || "Not Specified",
-      submission_timestamp: new Date().toISOString(),
+    // Nodemailer configuration
+    // Uses environment variables SMTP_USER and SMTP_PASS configured in Vercel
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.SMTP_USER || '"Supreme Villagio Website" <noreply@supremevillagio.com>',
+      to: 'propsmartrealty@gmail.com', // Sending lead to this address
+      subject: `New Lead: ${name} - Supreme Villagio`,
+      text: `You have received a new inquiry from the Supreme Villagio website:
+      
+Name: ${name}
+Phone: ${phone}
+Email: ${email || 'Not provided'}
+Typology Interested: ${typology || 'Not Specified'}
+
+Time: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+      `,
     };
 
-    // TODO: Replace this log with an actual fetch() call to your CRM endpoint
-    console.log("=== NEW LEAD CAPTURED ===");
-    console.log(JSON.stringify(crmPayload, null, 2));
-    console.log("=========================");
-
-    // Simulate network delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Send the email
+    await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ 
       success: true, 
-      message: "Lead successfully recorded in CRM" 
+      message: "Lead successfully sent via email" 
     });
   } catch (error) {
-    console.error("Error processing contact form:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    console.error("Error sending email:", error);
+    // Even if email fails (e.g. missing SMTP credentials locally), we return a 500
+    // so the frontend knows it failed.
+    return NextResponse.json({ error: "Failed to send lead email. Check SMTP credentials." }, { status: 500 });
   }
 }

@@ -10,42 +10,34 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Name and Phone are required" }, { status: 400 });
     }
 
-    // Nodemailer configuration
-    // Uses environment variables SMTP_USER and SMTP_PASS configured in Vercel
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
+    const googleScriptUrl = "https://script.google.com/macros/s/AKfycby5pHie-zIp_l_M6XFu33Bow6UIu6WlaARW5AE8FHprHHf1VeRFn7okcXuUc2hx0oiXGg/exec";
+
+    const response = await fetch(googleScriptUrl, {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        typology
+      })
     });
 
-    const mailOptions = {
-      from: process.env.SMTP_USER || '"Supreme Villagio Website" <noreply@supremevillagio.com>',
-      to: 'propsmartrealty@gmail.com', // Sending lead to this address
-      subject: `New Lead: ${name} - Supreme Villagio`,
-      text: `You have received a new inquiry from the Supreme Villagio website:
-      
-Name: ${name}
-Phone: ${phone}
-Email: ${email || 'Not provided'}
-Typology Interested: ${typology || 'Not Specified'}
+    if (!response.ok) {
+      throw new Error(`Google Script returned ${response.status}`);
+    }
 
-Time: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
-      `,
-    };
-
-    // Send the email
-    await transporter.sendMail(mailOptions);
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.error);
+    }
 
     return NextResponse.json({ 
       success: true, 
-      message: "Lead successfully sent via email" 
+      message: "Lead successfully sent via Google Apps Script" 
     });
   } catch (error) {
-    console.error("Error sending email:", error);
-    // Even if email fails (e.g. missing SMTP credentials locally), we return a 500
-    // so the frontend knows it failed.
-    return NextResponse.json({ error: "Failed to send lead email. Check SMTP credentials." }, { status: 500 });
+    console.error("Error sending lead to Google Script:", error);
+    return NextResponse.json({ error: "Failed to send lead email. Please try again." }, { status: 500 });
   }
 }

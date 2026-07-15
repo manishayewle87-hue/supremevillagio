@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
+    canonical: "https://www.supremesvillagio.com/",
   },
   verification: {
     google: "tjTIqD28r3w5lEq8E_dlNvwaAawCwF057ABSDOHISXI",

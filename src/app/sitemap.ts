@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { generateSeoSlugs } from '@/lib/seo-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://supremevillagio.com';
+  const baseUrl = 'https://www.supremesvillagio.com';
   const slugs = generateSeoSlugs();
   
   // Base URLs (Priority 1.0)

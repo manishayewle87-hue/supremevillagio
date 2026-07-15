@@ -9,11 +9,11 @@ import Magnetic from "@/components/ui/Magnetic";
 import { useModal } from "@/contexts/ModalContext";
 
 const NAV_LINKS = [
-  { label: "Vision", href: "#vision" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Residences", href: "#residences" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Location", href: "#location" },
+  { label: "Vision", href: "/vision" },
+  { label: "Architecture", href: "/architecture" },
+  { label: "Residences", href: "/residences" },
+  { label: "Amenities", href: "/amenities" },
+  { label: "Location", href: "/location" },
 ];
 
 export default function Navbar() {
@@ -68,7 +68,7 @@ export default function Navbar() {
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <a
+                <Link
                   href={link.href}
                   className="group relative flex flex-col overflow-hidden text-sm uppercase tracking-widest font-medium h-[40px] px-4 justify-center"
                 >
@@ -80,7 +80,7 @@ export default function Navbar() {
                       {link.label}
                     </span>
                   </div>
-                </a>
+                </Link>
               </div>
             </Magnetic>
           ))}
@@ -113,14 +113,14 @@ export default function Navbar() {
               className="fixed inset-0 bg-background/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 z-40"
             >
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-2xl font-heading hover:text-gold transition-colors duration-300"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <button 
                 onClick={() => {

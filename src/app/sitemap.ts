@@ -15,6 +15,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
+  // Core Pages (Priority 0.9)
+  const corePages = ['/vision', '/architecture', '/residences', '/amenities', '/location'];
+  corePages.forEach((page) => {
+    sitemapData.push({
+      url: `${baseUrl}${page}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    });
+  });
+
   // Dynamic SEO Slugs (Priority 0.8)
   slugs.forEach((slugArray) => {
     sitemapData.push({

@@ -20,6 +20,8 @@ export interface LandingPageProps {
   typology?: string;
 }
 
+import SeoSiloLinks from "@/components/layout/SeoSiloLinks";
+
 export default function LandingPageTemplate({ 
   heroHeadline1 = "A New Paradigm of",
   heroHeadline2 = "Horizontal Living",
@@ -49,6 +51,7 @@ export default function LandingPageTemplate({
       <TestimonialSection />
       <GallerySection />
       <FaqSection />
+      <SeoSiloLinks currentTypology={typology} />
     </>
   );
 }

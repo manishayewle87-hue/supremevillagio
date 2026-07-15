@@ -34,22 +34,22 @@ export default function Footer() {
             <h3 className="text-sm uppercase tracking-widest text-white mb-6">Explore</h3>
             <ul className="space-y-4 text-sm text-stone">
               <li>
-                <Link href="#vision" className="hover:text-gold transition-colors">
+                <Link href="/supreme-villagio/vision" className="hover:text-gold transition-colors">
                   Vision
                 </Link>
               </li>
               <li>
-                <Link href="#architecture" className="hover:text-gold transition-colors">
+                <Link href="/supreme-villagio/architecture" className="hover:text-gold transition-colors">
                   Architecture
                 </Link>
               </li>
               <li>
-                <Link href="#residences" className="hover:text-gold transition-colors">
+                <Link href="/supreme-villagio/residences" className="hover:text-gold transition-colors">
                   Residences
                 </Link>
               </li>
               <li>
-                <Link href="#amenities" className="hover:text-gold transition-colors">
+                <Link href="/supreme-villagio/amenities" className="hover:text-gold transition-colors">
                   Amenities
                 </Link>
               </li>
@@ -60,7 +60,7 @@ export default function Footer() {
             <h3 className="text-sm uppercase tracking-widest text-white mb-6">Information</h3>
             <ul className="space-y-4 text-sm text-stone">
               <li>
-                <Link href="#location" className="hover:text-gold transition-colors">
+                <Link href="/supreme-villagio/location" className="hover:text-gold transition-colors">
                   Location Map
                 </Link>
               </li>
@@ -96,6 +96,21 @@ export default function Footer() {
                 </a>
               </p>
             </address>
+          </div>
+        </div>
+
+        {/* Popular Searches SEO Silo Links */}
+        <div className="py-12 border-t border-charcoal-light">
+          <h3 className="text-sm uppercase tracking-widest text-white mb-8 text-center md:text-left">Popular Searches</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-stone">
+            <Link href="/supreme-villagio/pune/villas" className="hover:text-gold transition-colors">Pune Luxury Villas</Link>
+            <Link href="/supreme-villagio/somatane/villas/5-bhk-villas" className="hover:text-gold transition-colors">5 BHK Villas in Somatane</Link>
+            <Link href="/supreme-villagio/near-hinjewadi/bungalows" className="hover:text-gold transition-colors">Bungalows Near Hinjewadi</Link>
+            <Link href="/supreme-villagio/near-baner/row-houses" className="hover:text-gold transition-colors">Row Houses Near Baner</Link>
+            <Link href="/supreme-villagio/pune/villas/4-bhk-villas" className="hover:text-gold transition-colors">4 BHK Villas in Pune</Link>
+            <Link href="/supreme-villagio/west-pune/villas/luxury-villas" className="hover:text-gold transition-colors">Luxury Villas West Pune</Link>
+            <Link href="/supreme-villagio/somatane/bungalows/twin-bungalows" className="hover:text-gold transition-colors">Twin Bungalows Somatane</Link>
+            <Link href="/supreme-villagio/pune/row-houses/premium-row-house" className="hover:text-gold transition-colors">Premium Row Houses Pune</Link>
           </div>
         </div>
 

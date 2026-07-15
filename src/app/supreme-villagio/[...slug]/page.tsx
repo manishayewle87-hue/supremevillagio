@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: data.title,
       description: data.description,
       type: "website",
-      url: `https://supremevillagio.com/supreme-villagio/${urlPath}`,
+      url: `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
     },
     alternates: {
-      canonical: `https://supremevillagio.com/supreme-villagio/${urlPath}`,
+      canonical: `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
     }
   };
 }
@@ -44,10 +44,10 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     "@type": "RealEstateListing",
     "name": data.title,
     "description": data.description,
-    "url": `https://supremevillagio.com/supreme-villagio/${urlPath}`,
+    "url": `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
     "datePosted": new Date().toISOString().split('T')[0],
     "publisher": {
-      "@id": "https://supremevillagio.com/#organization"
+      "@id": "https://www.supremesvillagio.com/#organization"
     },
     "offers": {
       "@type": "Offer",
@@ -77,17 +77,17 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
       "@type": "ListItem", 
       "position": 1, 
       "name": "Home",
-      "item": "https://supremevillagio.com/"  
+      "item": "https://www.supremesvillagio.com/"  
     },
     {
       "@type": "ListItem", 
       "position": 2, 
       "name": "Supreme Villagio",
-      "item": "https://supremevillagio.com/supreme-villagio/"  
+      "item": "https://www.supremesvillagio.com/supreme-villagio/"  
     }
   ];
 
-  let currentPath = "https://supremevillagio.com/supreme-villagio";
+  let currentPath = "https://www.supremesvillagio.com/supreme-villagio";
   slugArray.forEach((segment, index) => {
     currentPath += `/${segment}`;
     breadcrumbItems.push({

@@ -5,17 +5,19 @@ import Script from 'next/script';
 
 export function generateStaticParams() {
   const slugs = generateSeoSlugs();
-  return slugs.slice(0, 100).map((slugArray) => ({
-    slug: slugArray[0], // Single string
+  return slugs.map((slugArray) => ({
+    slug: slugArray, // slug is now an array of path segments
   }));
 }
 
 export const revalidate = 86400; // ISR Revalidate every 24 hours
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const slugStr = resolvedParams.slug || "";
-  const data = generateSeoDataFromSlug([slugStr]);
+  const slugArray = resolvedParams.slug || [];
+  const urlPath = slugArray.join('/');
+  const data = generateSeoDataFromSlug(slugArray);
+  
   return {
     title: data.title,
     description: data.description,
@@ -23,25 +25,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: data.title,
       description: data.description,
       type: "website",
-      url: `https://supremevillagio.com/supreme-villagio/${slugStr}`,
+      url: `https://supremevillagio.com/supreme-villagio/${urlPath}`,
     },
     alternates: {
-      canonical: `https://supremevillagio.com/supreme-villagio/${slugStr}`,
+      canonical: `https://supremevillagio.com/supreme-villagio/${urlPath}`,
     }
   };
 }
 
-export default async function DynamicSeoPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function DynamicSeoPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const resolvedParams = await params;
-  const slugStr = resolvedParams.slug || "";
-  const data = generateSeoDataFromSlug([slugStr]);
+  const slugArray = resolvedParams.slug || [];
+  const urlPath = slugArray.join('/');
+  const data = generateSeoDataFromSlug(slugArray);
 
   const listingJsonLd = {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": data.title,
     "description": data.description,
-    "url": `https://supremevillagio.com/supreme-villagio/${slugStr}`,
+    "url": `https://supremevillagio.com/supreme-villagio/${urlPath}`,
     "datePosted": new Date().toISOString().split('T')[0],
     "publisher": {
       "@id": "https://supremevillagio.com/#organization"
@@ -68,40 +71,48 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     }
   };
 
+  // Dynamic Multi-Tier Breadcrumbs
+  const breadcrumbItems = [
+    {
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "Home",
+      "item": "https://supremevillagio.com/"  
+    },
+    {
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "Supreme Villagio",
+      "item": "https://supremevillagio.com/supreme-villagio/"  
+    }
+  ];
+
+  let currentPath = "https://supremevillagio.com/supreme-villagio";
+  slugArray.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      "position": index + 3,
+      "name": segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      "item": currentPath
+    });
+  });
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org/", 
     "@type": "BreadcrumbList", 
-    "itemListElement": [
-      {
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home",
-        "item": "https://supremevillagio.com/"  
-      },
-      {
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Supreme Villagio",
-        "item": "https://supremevillagio.com/supreme-villagio/"  
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": slugStr.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-        "item": `https://supremevillagio.com/supreme-villagio/${slugStr}`
-      }
-    ]
+    "itemListElement": breadcrumbItems
   };
 
   return (
     <>
       <Script
-        id={`json-ld-listing-${slugStr}`}
+        id={`json-ld-listing-${slugArray.join('-')}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listingJsonLd) }}
       />
       <Script
-        id={`json-ld-breadcrumb-${slugStr}`}
+        id={`json-ld-breadcrumb-${slugArray.join('-')}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />

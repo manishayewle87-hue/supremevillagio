@@ -1,51 +1,31 @@
 export const SEO_KEYWORD_MATRIX = {
-  typologies: [
-    "4-bhk-villas",
-    "5-bhk-villas",
-    "twin-bungalows",
-    "luxury-row-house",
-    "independent-villas",
-    "premium-bungalows",
-    "luxury-villas",
-    "villas",
-    "bungalows",
-    "row-house"
-  ],
   locations: [
     "pune",
     "somatane",
     "somatane-pune",
     "west-pune",
     "near-baner",
-    "near-hinjewadi",
-    "pune-real-estate"
+    "near-hinjewadi"
   ],
-  modifiers: [
-    "supreme-villagio",
-    "supreme-villagio-somatane",
-    "luxury",
-    "premium",
-    "gated-community"
-  ]
+  categories: {
+    "villas": ["4-bhk-villas", "5-bhk-villas", "independent-villas", "luxury-villas"],
+    "bungalows": ["twin-bungalows", "premium-bungalows"],
+    "row-houses": ["luxury-row-house", "premium-row-house"]
+  }
 };
 
-// Generate valid SEO URL slugs (Neat, clean, 1-depth focusing on supreme-villagio)
+// Generate valid Hierarchical SEO URL slugs for Deep Siloing
 export function generateSeoSlugs(): string[][] {
   const slugs: string[][] = [];
   
-  for (const typology of SEO_KEYWORD_MATRIX.typologies) {
-    for (const location of SEO_KEYWORD_MATRIX.locations) {
-      // Very clean URLs:
-      // supreme-villagio-4-bhk-villas-pune
-      slugs.push([`supreme-villagio-${typology}-${location}`]);
-      // supreme-villagio-4-bhk-villas-in-pune
-      slugs.push([`supreme-villagio-${typology}-in-${location}`]);
+  for (const location of SEO_KEYWORD_MATRIX.locations) {
+    for (const [category, specificTypes] of Object.entries(SEO_KEYWORD_MATRIX.categories)) {
+      // Parent Silo: e.g. /supreme-villagio/pune/villas
+      slugs.push([location, category]);
       
-      for (const modifier of SEO_KEYWORD_MATRIX.modifiers) {
-        // e.g. luxury-supreme-villagio-4-bhk-villas-in-pune
-        if (modifier !== "supreme-villagio" && modifier !== "supreme-villagio-somatane") {
-          slugs.push([`${modifier}-supreme-villagio-${typology}-in-${location}`]);
-        }
+      for (const specific of specificTypes) {
+        // Child Silo: e.g. /supreme-villagio/pune/villas/4-bhk-villas
+        slugs.push([location, category, specific]);
       }
     }
   }
@@ -53,7 +33,7 @@ export function generateSeoSlugs(): string[][] {
   return slugs;
 }
 
-// Convert slug array back to readable text
+// Convert hierarchical array back to readable text and inject dynamic location context
 export function generateSeoDataFromSlug(slugs: string[]) {
   const fullSlugStr = slugs.join(" ").replace(/-/g, " ");
   
@@ -63,27 +43,38 @@ export function generateSeoDataFromSlug(slugs: string[]) {
   
   let typologyText = "4 & 5 BHK Villas";
   if (isBungalow) typologyText = "Twin Bungalows";
-  if (isRowHouse) typologyText = "Luxury Row House";
+  if (isRowHouse) typologyText = "Luxury Row Houses";
   if (isIndependent) typologyText = "Independent Villas";
-
-  const locationText = (slugs.includes("somatane") || slugs.includes("supreme-villagio-somatane")) 
-    ? "Somatane, Pune" 
-    : "Pune Real Estate Market";
 
   // Title case function
   const titleCase = (str: string) => str.replace(/\b\w/g, c => c.toUpperCase());
   
+  // Dynamic Context Injection based on Silo Array
+  let locationContext = "in the premium Pune Real Estate market";
+  let locationBenefit = "Experience ultra-luxury living";
+  
+  if (fullSlugStr.includes("hinjewadi")) {
+    locationContext = "just minutes away from Pune's bustling IT hubs";
+    locationBenefit = "Balance your professional IT lifestyle with tranquil luxury living";
+  } else if (fullSlugStr.includes("baner")) {
+    locationContext = "near the vibrant high-street culture of West Pune";
+    locationBenefit = "Enjoy seamless connectivity to Baner's finest restaurants and schools";
+  } else if (fullSlugStr.includes("somatane")) {
+    locationContext = "surrounded by the serene hill-station atmosphere of Somatane";
+    locationBenefit = "Wake up to breathtaking mountain views every morning";
+  }
+
   // Supreme Villagio hardened SEO injection
   const titlePrefix = titleCase(fullSlugStr);
-  const finalTitle = `${titlePrefix} | Supreme Villagio Somatane`;
+  const finalTitle = `${titlePrefix} | Supreme Villagio Pune`;
   
-  const optimizedDescription = `Discover ${fullSlugStr} in the premium Pune Real Estate market. Supreme Villagio Somatane offers ultra-luxury ${typologyText.toLowerCase()}, twin bungalows, and row houses starting from ₹2.89 Cr* with Under Construction status.`;
+  const optimizedDescription = `Discover exclusive ${titlePrefix} ${locationContext}. Supreme Villagio offers ultra-luxury ${typologyText.toLowerCase()} starting from ₹2.89 Cr* with Under Construction status.`;
 
   // Return dynamically constructed SEO props
   return {
-    heroHeadline1: titleCase(fullSlugStr.split(" in ")[0] || "A New Paradigm of").trim(),
-    heroHeadline2: titleCase(fullSlugStr.split(" in ")[1] || "Luxury Living").trim(),
-    heroSubline: `Experience ultra-luxury ${typologyText.toLowerCase()} at Supreme Villagio Somatane. Under Construction.`,
+    heroHeadline1: titleCase(slugs[slugs.length - 1] ? slugs[slugs.length - 1].replace(/-/g, " ") : "A New Paradigm of").trim(),
+    heroHeadline2: titleCase(slugs[0] ? slugs[0].replace(/-/g, " ") : "Luxury Living").trim(),
+    heroSubline: `${locationBenefit} at Supreme Villagio. ${typologyText} starting from ₹2.89 Cr*. Under Construction.`,
     highlightWords: slugs.map(s => titleCase(s.replace(/-/g, " "))).flatMap(s => s.split(" ")),
     pricing: "₹2.89 Cr*",
     typology: typologyText,

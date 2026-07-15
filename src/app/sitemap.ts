@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic SEO Slugs (Priority 0.8)
   slugs.forEach((slugArray) => {
     sitemapData.push({
-      url: `${baseUrl}/supreme-villagio/${slugArray[0]}`,
+      url: `${baseUrl}/supreme-villagio/${slugArray.join('/')}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

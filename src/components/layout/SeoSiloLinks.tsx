@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { generateSeoSlugs } from '@/lib/seo-data';
 
 export default function SeoSiloLinks({ currentTypology }: { currentTypology: string }) {
-  // Get all generated slugs
-  const allSlugs = generateSeoSlugs().map(s => s[0]);
+  // Get all generated slugs (now an array of arrays)
+  const allSlugs = generateSeoSlugs();
   
   // Create a silo based on the current typology
   const is5BHK = currentTypology.includes('5');
@@ -17,11 +17,9 @@ export default function SeoSiloLinks({ currentTypology }: { currentTypology: str
   if (isRowHouse) siloKeyword = 'row-house';
 
   // Filter for related slugs (Siloing) and take a chunk
-  // We skip the generic ones to focus on the specific silo
   const relatedSlugs = allSlugs
-    .filter(slug => slug.includes(siloKeyword))
-    // Shuffle or select a diverse set to interlink thoroughly (we take a static slice for stability in SSG)
-    .filter((_, i) => i % 3 === 0) 
+    .filter(slugArray => slugArray.join('-').includes(siloKeyword))
+    .filter((_, i) => i % 2 === 0) 
     .slice(0, 15);
 
   if (relatedSlugs.length === 0) return null;
@@ -31,11 +29,12 @@ export default function SeoSiloLinks({ currentTypology }: { currentTypology: str
       <div className="container mx-auto px-6 md:px-12">
         <h3 className="text-stone/40 uppercase tracking-widest mb-6 font-medium">Explore Related Properties in Pune</h3>
         <ul className="flex flex-wrap gap-x-6 gap-y-3">
-          {relatedSlugs.map(slug => {
-            const readableText = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          {relatedSlugs.map(slugArray => {
+            const urlPath = slugArray.join('/');
+            const readableText = slugArray.join(' ').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
             return (
-              <li key={slug}>
-                <Link href={`/supreme-villagio/${slug}`} className="hover:text-gold transition-colors block">
+              <li key={urlPath}>
+                <Link href={`/supreme-villagio/${urlPath}`} className="hover:text-gold transition-colors block">
                   {readableText}
                 </Link>
               </li>

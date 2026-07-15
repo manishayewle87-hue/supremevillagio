@@ -18,8 +18,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/private/', '/api/', '/_next/'],
         crawlDelay: 2, // Prevent aggressive crawling
+      },
+      {
+        userAgent: ['GPTBot', 'CCBot', 'anthropic-ai', 'Claude-Web', 'ClaudeBot', 'Omgili', 'Omgilibot', 'FacebookBot'],
+        disallow: ['/'],
       }
     ],
-    sitemap: 'https://supremevillagio.com/sitemap.xml',
+    sitemap: 'https://www.supremesvillagio.com/sitemap.xml',
   }
 }

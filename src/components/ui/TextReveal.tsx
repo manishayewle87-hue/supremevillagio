@@ -35,16 +35,16 @@ export default function TextReveal({
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
     },
     hidden: {
       opacity: 0,
-      y: 40,
+      y: 20,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },

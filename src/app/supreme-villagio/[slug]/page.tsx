@@ -42,15 +42,28 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     "name": data.title,
     "description": data.description,
     "url": `https://supremevillagio.com/supreme-villagio/${slugStr}`,
+    "datePosted": new Date().toISOString().split('T')[0],
+    "publisher": {
+      "@id": "https://supremevillagio.com/#organization"
+    },
     "offers": {
       "@type": "Offer",
       "priceCurrency": "INR",
       "price": "28900000",
       "availability": "https://schema.org/InStock",
       "itemOffered": {
-        "@type": "Product",
+        "@type": "SingleFamilyResidence",
         "name": data.typology,
-        "description": data.heroSubline
+        "description": data.heroSubline,
+        "numberOfRooms": data.typology.includes('5') ? 5 : 4,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Somatane",
+          "addressLocality": "Pune",
+          "addressRegion": "MH",
+          "postalCode": "410506",
+          "addressCountry": "IN"
+        }
       }
     }
   };

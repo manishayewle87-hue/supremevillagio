@@ -188,15 +188,43 @@ const breadcrumbSchema = {
   }]
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://supremevillagio.com/#organization",
+  "name": "Supreme Universal",
+  "url": "https://www.supremeuniversal.com/",
+  "logo": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
+  "sameAs": [
+    "https://www.facebook.com/SupremeUniversalRealEstate/",
+    "https://www.instagram.com/supreme_universal/",
+    "https://www.linkedin.com/company/supremeuniversal/"
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://supremevillagio.com/#website",
+  "url": "https://supremevillagio.com/",
+  "name": "Supreme Villagio | Luxury Villas in Somatane",
+  "publisher": {
+    "@id": "https://supremevillagio.com/#organization"
+  }
+};
+
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
+  "@id": "https://supremevillagio.com/#localbusiness",
   "name": "Supreme Villagio",
   "image": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
-  "@id": "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
-  "url": "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
-  "telephone": "+91 8047480749",
+  "url": "https://supremevillagio.com/",
+  "telephone": "+91 7744009295",
   "priceRange": "₹2.89 Cr*",
+  "parentOrganization": {
+    "@id": "https://supremevillagio.com/#organization"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Somatane",
@@ -217,12 +245,7 @@ const localBusinessSchema = {
     ],
     "opens": "09:00",
     "closes": "18:00"
-  },
-  "sameAs": [
-    "https://www.facebook.com/SupremeUniversalRealEstate/",
-    "https://www.instagram.com/supreme_universal/",
-    "https://www.linkedin.com/company/supremeuniversal/"
-  ]
+  }
 };
 
 export default function RootLayout({
@@ -250,6 +273,16 @@ export default function RootLayout({
           id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         
         {/* Meta Pixel Code */}

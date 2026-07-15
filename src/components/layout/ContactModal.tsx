@@ -31,8 +31,11 @@ export default function ContactModal() {
     resolver: zodResolver(formSchema),
   });
 
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
+    setSubmitError(null);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -40,13 +43,15 @@ export default function ContactModal() {
         body: JSON.stringify(data),
       });
 
+      const responseData = await response.json();
+
       if (response.ok) {
         // Fire Conversion Events for Google Ecosystem and Meta
         if (typeof window !== "undefined" && (window as any).fbq) {
           (window as any).fbq('track', 'Lead', { content_name: 'Contact Modal Lead' });
         }
         
-        // GA4 tracking (via @next/third-parties/google)
+        // GA4 tracking
         if (typeof window !== "undefined" && (window as any).gtag) {
           (window as any).gtag('event', 'lead_generated', {
             event_category: 'engagement',
@@ -62,11 +67,11 @@ export default function ContactModal() {
           closeContactModal();
         }, 3000);
       } else {
-        throw new Error("Failed to submit");
+        throw new Error(responseData.error || "Failed to submit lead");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert("Something went wrong. Please try again.");
+      setSubmitError(error.message || "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -172,6 +177,11 @@ export default function ContactModal() {
                   >
                     {isSubmitting ? "Submitting..." : "Request Call Back"}
                   </button>
+                  {submitError && (
+                    <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-xs p-3 mt-4">
+                      {submitError}
+                    </div>
+                  )}
                   <p className="text-center text-[10px] text-muted-foreground mt-4">
                     By submitting this form, you authorize Supreme Universal to contact you via Call/SMS/WhatsApp.
                   </p>

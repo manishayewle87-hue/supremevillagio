@@ -10,35 +10,35 @@ const AMENITIES = [
     description: "18,500 sq. ft. of exclusive recreation and wellness.",
     colSpan: "col-span-12 md:col-span-8",
     rowSpan: "row-span-2",
-    image: "https://d66htbxvzotmo.cloudfront.net/media/supreme-villagio-clubhouse.jpg", // Placeholder
+    image: "https://cdn.supremeuniversal.com/media/jfpM5D_Villagio-L--KD--Club-housemin.jpg",
   },
   {
     title: "Infinity Pool",
     description: "Temperature-controlled swimming pool overlooking the hills.",
     colSpan: "col-span-12 md:col-span-4",
     rowSpan: "row-span-1",
-    image: "https://d66htbxvzotmo.cloudfront.net/media/supreme-villagio-pool.jpg", // Placeholder
+    image: "https://cdn.supremeuniversal.com/media/tIaHE6_Villagio-L--Club-housemin.jpg",
   },
   {
     title: "Yoga Pavilion",
     description: "Find inner peace in our dedicated meditation zones.",
     colSpan: "col-span-12 md:col-span-4",
     rowSpan: "row-span-1",
-    image: "https://d66htbxvzotmo.cloudfront.net/media/supreme-villagio-yoga.jpg", // Placeholder
+    image: "https://cdn.supremeuniversal.com/media/fIAB41_Villagio--KD--Wellness-Spine.jpg",
   },
   {
     title: "Organic Gardens",
     description: "Stroll through meticulously landscaped green spaces.",
     colSpan: "col-span-12 md:col-span-4",
     rowSpan: "row-span-1",
-    image: "https://d66htbxvzotmo.cloudfront.net/media/supreme-villagio-garden.jpg", // Placeholder
+    image: "https://cdn.supremeuniversal.com/media/Bc6Vxj_Grand-Central-Boulevard_880-X-900_Villagio-08.jpg",
   },
   {
     title: "State-of-the-Art Gym",
     description: "Equipped with the latest fitness technology.",
     colSpan: "col-span-12 md:col-span-8",
     rowSpan: "row-span-1",
-    image: "https://d66htbxvzotmo.cloudfront.net/media/supreme-villagio-gym.jpg", // Placeholder
+    image: "https://cdn.supremeuniversal.com/media/Supreme-Villagio--Desktop-Banner-5_H7lC84.jpg",
   }
 ];
 

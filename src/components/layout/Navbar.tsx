@@ -9,11 +9,11 @@ import Magnetic from "@/components/ui/Magnetic";
 import { useModal } from "@/contexts/ModalContext";
 
 const NAV_LINKS = [
-  { label: "Vision", href: "/vision" },
-  { label: "Architecture", href: "/architecture" },
-  { label: "Residences", href: "/residences" },
-  { label: "Amenities", href: "/amenities" },
-  { label: "Location", href: "/location" },
+  { label: "Vision", href: "/supreme-villagio/vision" },
+  { label: "Architecture", href: "/supreme-villagio/architecture" },
+  { label: "Residences", href: "/supreme-villagio/residences" },
+  { label: "Amenities", href: "/supreme-villagio/amenities" },
+  { label: "Location", href: "/supreme-villagio/location" },
 ];
 
 export default function Navbar() {

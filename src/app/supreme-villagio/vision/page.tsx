@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Vision & Philosophy | Supreme Villagio Somatane Pune",
   description: "Discover the architectural vision and philosophy behind Supreme Villagio, offering ultra-luxury villas and row houses in Somatane, Pune.",
   alternates: {
-    canonical: "https://www.supremesvillagio.com/vision",
+    canonical: "https://www.supremesvillagio.com/supreme-villagio/vision",
   },
 };
 

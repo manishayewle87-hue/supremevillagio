@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Location Map & Connectivity | Supreme Villagio Somatane Pune",
   description: "Supreme Villagio is strategically located in Somatane, Pune. Explore the location map, neighborhood, and seamless connectivity.",
   alternates: {
-    canonical: "https://www.supremesvillagio.com/location",
+    canonical: "https://www.supremesvillagio.com/supreme-villagio/location",
   },
 };
 

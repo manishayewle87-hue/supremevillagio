@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Core Pages (Priority 0.9)
-  const corePages = ['/vision', '/architecture', '/residences', '/amenities', '/location'];
+  const corePages = ['/supreme-villagio/vision', '/supreme-villagio/architecture', '/supreme-villagio/residences', '/supreme-villagio/amenities', '/supreme-villagio/location'];
   corePages.forEach((page) => {
     sitemapData.push({
       url: `${baseUrl}${page}`,

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Luxury Amenities & Club Villagio | Supreme Villagio Pune",
   description: "Experience the world-class amenities at Club Villagio, featuring swimming pools, fitness centers, and lush green landscapes in Somatane, Pune.",
   alternates: {
-    canonical: "https://www.supremesvillagio.com/amenities",
+    canonical: "https://www.supremesvillagio.com/supreme-villagio/amenities",
   },
 };
 

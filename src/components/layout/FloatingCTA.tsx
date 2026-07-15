@@ -30,7 +30,7 @@ export default function FloatingCTA() {
           className="fixed bottom-6 right-6 z-40 flex flex-col gap-4"
         >
           <a
-            href="https://wa.me/1234567890"
+            href="https://wa.me/917744009295"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
@@ -38,7 +38,7 @@ export default function FloatingCTA() {
             <MessageCircle size={24} />
           </a>
           <a
-            href="tel:+18001234567"
+            href="tel:+917744009295"
             className="w-12 h-12 bg-charcoal text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
           >
             <Phone size={22} />

@@ -88,15 +88,30 @@ export default function Footer() {
               <p>Luxury Estate Road, Sector 1,</p>
               <p>City Center, 400001</p>
               <p className="mt-4 pt-4 border-t border-charcoal-light">
-                <a href="mailto:info@supremevillagio.com" className="hover:text-gold transition-colors block">
-                  info@supremevillagio.com
+                <a href="mailto:propsmartrealty@gmail.com" className="hover:text-gold transition-colors block break-all">
+                  propsmartrealty@gmail.com
                 </a>
-                <a href="tel:+18001234567" className="hover:text-gold transition-colors block mt-2">
-                  +1 800 123 4567
+                <a href="tel:+917744009295" className="hover:text-gold transition-colors block mt-2 font-medium">
+                  +91 7744009295
                 </a>
               </p>
             </address>
           </div>
+        </div>
+
+        {/* MahaRERA Section */}
+        <div className="py-8 border-t border-charcoal-light text-center">
+          <h4 className="text-gold font-heading text-sm uppercase tracking-widest mb-4">MahaRERA Registration</h4>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-sm text-stone">
+            <p><strong>Phase 1:</strong> P52100046867</p>
+            <p className="hidden md:block">|</p>
+            <p><strong>Phase 2:</strong> P52100049506</p>
+            <p className="hidden md:block">|</p>
+            <p><strong>Phase 3:</strong> P52100055048</p>
+          </div>
+          <p className="text-xs text-stone mt-4 max-w-3xl mx-auto">
+            Available at <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-gold underline underline-offset-2">maharera.mahaonline.gov.in</a>
+          </p>
         </div>
 
         <div className="pt-8 border-t border-charcoal-light flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone">

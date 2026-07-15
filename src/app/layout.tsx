@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
-  description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Phase 1 OC received.",
+  description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
   keywords: ["Supreme Villagio", "4 BHK Villas Pune", "5 BHK Villas Somatane", "Luxury Villas Pune", "Townhouses Somatane", "Real Estate Pune"],
   authors: [{ name: "Supreme Universal" }],
   creator: "Supreme Universal",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     canonical: "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
   },
   verification: {
-    google: "google-site-verification=PLACEHOLDER", // Replace with real GSC code
+    google: "tjTIqD28r3w5lEq8E_dlNvwaAawCwF057ABSDOHISXI",
     yandex: "yandex-verification=PLACEHOLDER",     // Replace with real Yandex code
     other: {
       "msvalidate.01": ["PLACEHOLDER"],            // Bing Webmaster Tools
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
     title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
-    description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Phase 1 OC received.",
+    description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
     siteName: "Supreme Universal",
     images: [
       {
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     site: "@SupremeUniv",
     creator: "@SupremeUniv",
     title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
-    description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Phase 1 OC received.",
+    description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
     images: ["https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg"],
   },
   robots: {

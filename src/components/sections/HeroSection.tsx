@@ -129,7 +129,7 @@ export default function HeroSection({
             </div>
             <div className="px-2 md:px-4 border-none md:border-r border-cream/10 md:last:border-0">
               <p className="text-[10px] md:text-xs text-gold uppercase tracking-widest mb-1 font-semibold">Project Status</p>
-              <p className="text-xs md:text-sm text-cream font-light">OC Received</p>
+              <p className="text-xs md:text-sm text-cream font-light">Under Construction</p>
             </div>
             <div className="px-2 md:px-4 border-r border-cream/10 md:last:border-0 mt-2 md:mt-0">
               <p className="text-[10px] md:text-xs text-gold uppercase tracking-widest mb-1 font-semibold">Location</p>

@@ -77,13 +77,13 @@ export function generateSeoDataFromSlug(slugs: string[]) {
   const titlePrefix = titleCase(fullSlugStr);
   const finalTitle = `${titlePrefix} | Supreme Villagio Somatane`;
   
-  const optimizedDescription = `Discover ${fullSlugStr} in the premium Pune Real Estate market. Supreme Villagio Somatane offers ultra-luxury ${typologyText.toLowerCase()}, twin bungalows, and row houses starting from ₹2.89 Cr* with OC received.`;
+  const optimizedDescription = `Discover ${fullSlugStr} in the premium Pune Real Estate market. Supreme Villagio Somatane offers ultra-luxury ${typologyText.toLowerCase()}, twin bungalows, and row houses starting from ₹2.89 Cr* with Under Construction status.`;
 
   // Return dynamically constructed SEO props
   return {
     heroHeadline1: titleCase(fullSlugStr.split(" in ")[0] || "A New Paradigm of").trim(),
     heroHeadline2: titleCase(fullSlugStr.split(" in ")[1] || "Luxury Living").trim(),
-    heroSubline: `Experience ultra-luxury ${typologyText.toLowerCase()} at Supreme Villagio Somatane. OC Received.`,
+    heroSubline: `Experience ultra-luxury ${typologyText.toLowerCase()} at Supreme Villagio Somatane. Under Construction.`,
     highlightWords: slugs.map(s => titleCase(s.replace(/-/g, " "))).flatMap(s => s.split(" ")),
     pricing: "₹2.89 Cr*",
     typology: typologyText,

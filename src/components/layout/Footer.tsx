@@ -53,6 +53,11 @@ export default function Footer() {
                   Amenities
                 </Link>
               </li>
+              <li>
+                <Link href="/blog" className="hover:text-gold transition-colors">
+                  Journal (Blog)
+                </Link>
+              </li>
             </ul>
           </div>
 

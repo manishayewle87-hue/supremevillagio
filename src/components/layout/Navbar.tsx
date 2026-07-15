@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { label: "Residences", href: "/supreme-villagio/residences" },
   { label: "Amenities", href: "/supreme-villagio/amenities" },
   { label: "Location", href: "/supreme-villagio/location" },
+  { label: "Journal", href: "/blog" },
 ];
 
 export default function Navbar() {

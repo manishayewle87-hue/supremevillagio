@@ -64,6 +64,8 @@ export default function HeroSection({
           alt="Supreme Villagio Somatane Pune"
           fill
           priority
+          fetchPriority="high"
+          sizes="100vw"
           quality={100}
           className="object-cover object-center transform scale-105 transition-transform duration-[20s] ease-linear hover:scale-110"
         />

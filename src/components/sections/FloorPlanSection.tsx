@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useModal } from "@/contexts/ModalContext";
-import { ArrowRight, Maximize2 } from "lucide-react";
+import { Maximize2 } from "lucide-react";
 
 const FLOOR_PLANS = [
   {

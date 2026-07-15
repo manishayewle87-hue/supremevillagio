@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import NextImage from "next/image";
 
 const AMENITIES = [
   {

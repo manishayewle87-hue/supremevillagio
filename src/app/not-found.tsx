@@ -22,9 +22,9 @@ export default function NotFound() {
             <h2 className="text-3xl md:text-5xl font-heading mb-6">
               The Path is <span className="italic text-foreground/50">Uncharted.</span>
             </h2>
-            <p className="text-foreground/70 max-w-lg mx-auto mb-10 font-light leading-relaxed">
-              We couldn't find the page you were looking for. It may have been moved, or it simply doesn't exist in this paradigm of living.
-            </p>
+            <p className="text-stone/60 max-w-md mx-auto mb-10 text-sm leading-relaxed">
+            We couldn&apos;t find the page you&apos;re looking for. It might have been removed, renamed, or didn&apos;t exist in the first place.
+          </p>
             
             <Link 
               href="/"

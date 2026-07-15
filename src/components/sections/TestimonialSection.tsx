@@ -65,7 +65,7 @@ export default function TestimonialSection() {
                 <Quote size={32} />
               </div>
               <p className="text-lg md:text-xl font-light leading-relaxed mb-8 text-white/90">
-                "{testimonial.text}"
+                &quot;{testimonial.text}&quot;
               </p>
               <div>
                 <p className="font-heading text-lg">{testimonial.author}</p>

@@ -1,5 +1,12 @@
 "use client";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 import { useModal } from "@/contexts/ModalContext";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,13 +54,13 @@ export default function ContactModal() {
 
       if (response.ok) {
         // Fire Conversion Events for Google Ecosystem and Meta
-        if (typeof window !== "undefined" && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead', { content_name: 'Contact Modal Lead' });
+        if (typeof window !== "undefined" && window.fbq) {
+          window.fbq('track', 'Lead', { content_name: 'Contact Modal Lead' });
         }
         
         // GA4 tracking
-        if (typeof window !== "undefined" && (window as any).gtag) {
-          (window as any).gtag('event', 'lead_generated', {
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag('event', 'lead_generated', {
             event_category: 'engagement',
             event_label: 'Contact Modal Submission',
             value: 1
@@ -69,9 +76,10 @@ export default function ContactModal() {
       } else {
         throw new Error(responseData.error || "Failed to submit lead");
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error(error);
-      setSubmitError(error.message || "Something went wrong. Please try again.");
+      const errorMessage = error instanceof Error ? error.message : "Something went wrong. Please try again.";
+      setSubmitError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

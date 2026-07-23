@@ -264,6 +264,16 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <head>
+        {/* Resource Pre-connection for Performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://d66htbxvzotmo.cloudfront.net" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://d66htbxvzotmo.cloudfront.net" />
+        <link rel="preconnect" href="https://cdn.supremeuniversal.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.supremeuniversal.com" />
+
         <Script
           id="faq-schema"
           type="application/ld+json"

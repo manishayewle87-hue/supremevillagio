@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.supremesvillagio.com"),
-  title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
+  title: "Supreme Villagio Somatane | 4 & 5 BHK Luxury Villas in Pune",
   description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
   keywords: ["Supreme Villagio", "4 BHK Villas Pune", "5 BHK Villas Somatane", "Luxury Villas Pune", "Townhouses Somatane", "Real Estate Pune"],
   authors: [{ name: "Supreme Universal" }],
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
-    title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
+    title: "Supreme Villagio Somatane | 4 & 5 BHK Luxury Villas in Pune",
     description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
     siteName: "Supreme Universal",
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@SupremeUniv",
     creator: "@SupremeUniv",
-    title: "Supreme Villagio | 4 & 5 BHK Villas for Sale in Somatane Pune",
+    title: "Supreme Villagio Somatane | 4 & 5 BHK Luxury Villas in Pune",
     description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
     images: ["https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg"],
   },
@@ -207,7 +207,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": "https://www.supremesvillagio.com/#website",
   "url": "https://www.supremesvillagio.com/",
-  "name": "Supreme Villagio | Luxury Villas in Somatane",
+  "name": "Supreme Villagio Somatane | Luxury Villas",
   "publisher": {
     "@id": "https://www.supremesvillagio.com/#organization"
   }
@@ -217,7 +217,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   "@id": "https://www.supremesvillagio.com/#localbusiness",
-  "name": "Supreme Villagio",
+  "name": "Supreme Villagio Somatane",
   "image": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
   "url": "https://www.supremesvillagio.com/",
   "telephone": "+91 7744009295",

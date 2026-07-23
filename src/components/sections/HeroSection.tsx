@@ -80,7 +80,7 @@ export default function HeroSection({
         <div className="mb-12 hero-logo">
           <Image 
             src="https://cdn.supremeuniversal.com/media/Q9b1g7_Supreme-Villagio-Logo.svg"
-            alt="Supreme Villagio Logo"
+            alt="Supreme Villagio Somatane Logo"
             width={300}
             height={100}
             className="mx-auto drop-shadow-2xl brightness-0 invert" // Invert if the logo is originally dark

@@ -108,6 +108,7 @@ export default function Footer() {
         <div className="py-12 border-t border-charcoal-light">
           <h3 className="text-sm uppercase tracking-widest text-white mb-8 text-center md:text-left">Popular Searches</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-stone">
+            <Link href="/" className="hover:text-gold transition-colors font-semibold text-white">Supreme Villagio Somatane</Link>
             <Link href="/supreme-villagio/pune/villas" className="hover:text-gold transition-colors">Pune Luxury Villas</Link>
             <Link href="/supreme-villagio/somatane/villas/5-bhk-villas" className="hover:text-gold transition-colors">5 BHK Villas in Somatane</Link>
             <Link href="/supreme-villagio/near-hinjewadi/bungalows" className="hover:text-gold transition-colors">Bungalows Near Hinjewadi</Link>

@@ -1,6 +1,7 @@
 ---
 title: '4 BHK vs 5 BHK Villas: Which is the Right Choice for Your Family in Pune?'
 date: '2026-07-24'
+tags: ['configuration', 'lifestyle']
 description: 'Struggling to choose between a 4 BHK and 5 BHK villa? We break down the lifestyle benefits, spatial dynamics, and investment value of both configurations in Pune.'
 ---
 

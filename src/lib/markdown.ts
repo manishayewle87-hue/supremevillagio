@@ -12,6 +12,7 @@ export interface BlogPost {
   date: string;
   description: string;
   image?: string;
+  tags?: string[];
   content: string;
 }
 
@@ -33,6 +34,7 @@ export function getPostBySlug(slug: string): BlogPost {
     date: data.date,
     description: data.description,
     image: data.image || 'https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg',
+    tags: data.tags || [],
     content: content,
   };
 }

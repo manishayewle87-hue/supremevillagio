@@ -20,6 +20,7 @@ const formSchema = z.object({
   phone: z.string().regex(/^[6-9]\d{9}$/, "Please enter a valid 10-digit Indian mobile number"),
   email: z.string().email("Please enter a valid email address").optional().or(z.literal("")),
   typology: z.string().optional(),
+  website: z.string().optional(), // Honeypot field
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -176,6 +177,12 @@ export default function ContactModal() {
                         </label>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Honeypot Field (Hidden from real users, filled by bots) */}
+                  <div className="hidden" aria-hidden="true">
+                    <label>Website</label>
+                    <input type="text" {...register("website")} tabIndex={-1} autoComplete="off" />
                   </div>
 
                   <button

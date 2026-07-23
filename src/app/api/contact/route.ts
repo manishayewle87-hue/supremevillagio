@@ -3,7 +3,14 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, phone, email, typology } = body;
+    const { name, phone, email, typology, website } = body;
+
+    // Honeypot check: If the hidden 'website' field is filled out, it's a bot.
+    if (website) {
+      console.log(`[SPAM BLOCKED] Bot detected via honeypot field. Name: ${name}`);
+      // Return 200 OK to trick the bot into thinking it succeeded, but do NOT send the email.
+      return NextResponse.json({ success: true, message: "Lead successfully sent" });
+    }
 
     if (!name || !phone) {
       return NextResponse.json({ error: "Name and Phone are required" }, { status: 400 });

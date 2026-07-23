@@ -301,13 +301,13 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1234567890');
+            fbq('init', '${process.env.NEXT_PUBLIC_FB_PIXEL_ID || ""}');
             fbq('track', 'PageView');
           `}
         </Script>
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
         <ModalProvider>
           <NoiseOverlay />
           <CustomCursor />

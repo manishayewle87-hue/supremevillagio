@@ -44,6 +44,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  appleWebApp: {
+    title: "Villagio",
+    statusBarStyle: "black-translucent",
+    capable: true,
+  },
   alternates: {
     canonical: "https://www.supremesvillagio.com/",
   },

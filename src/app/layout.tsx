@@ -99,6 +99,7 @@ export const metadata: Metadata = {
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://www.supremesvillagio.com/#faq",
   "mainEntity": [{
     "@type": "Question",
     "name": "Where can I find premium bungalows in Pune?",
@@ -281,6 +282,7 @@ const localBusinessSchema = {
 const videoObjectSchema = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
+  "@id": "https://www.supremesvillagio.com/#video",
   "name": "Supreme Villagio Somatane | Luxury Villas Walkthrough",
   "description": "Experience the ultimate luxury lifestyle at Supreme Villagio in Somatane, Pune. Explore our 4 & 5 BHK Twin Bungalows.",
   "thumbnailUrl": [
@@ -291,6 +293,9 @@ const videoObjectSchema = {
   "embedUrl": "https://www.supremesvillagio.com/",
   "publisher": {
     "@id": "https://www.supremesvillagio.com/#organization"
+  },
+  "contentLocation": {
+    "@id": "https://www.supremesvillagio.com/#localbusiness"
   }
 };
 

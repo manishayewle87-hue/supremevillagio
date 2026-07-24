@@ -19,13 +19,14 @@ export const SEO_KEYWORD_MATRIX = {
     "bhusari-colony", "paud-road", "talegaon", "lonavala", "khandala", "mumbai-pune-expressway"
   ],
   categories: {
-    "villas": ["4-bhk-villas", "5-bhk-villas", "independent-villas", "luxury-villas", "premium-villas"],
-    "bungalows": ["twin-bungalows", "premium-bungalows", "4-bhk-bungalows", "5-bhk-bungalows"],
+    "villas": ["4-bhk-villas", "5-bhk-villas", "villas-in-pune", "luxury-villas", "premium-villas-market"],
+    "bungalows": ["premium-bungalows", "premium-bungalows-in-pune", "4-bhk-bungalows", "5-bhk-twin-bungalows", "luxury-bungalow-projects"],
+    "real-estate": ["pune-real-estate-market", "somatane-real-estate", "pune-premium-properties"],
     "row-houses": ["luxury-row-house", "premium-row-house", "4-bhk-row-house"]
   },
   intents: [
     "price", "floor-plan", "reviews", "location", "investment", 
-    "for-sale", "gated-community", "under-construction"
+    "for-sale", "gated-community", "top-1-project"
   ]
 };
 

@@ -33,9 +33,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.supremesvillagio.com"),
-  title: "Supreme Villagio Somatane | 4 & 5 BHK Luxury Villas in Pune",
-  description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
-  keywords: ["Supreme Villagio", "4 BHK Villas Pune", "5 BHK Villas Somatane", "Luxury Villas Pune", "Townhouses Somatane", "Real Estate Pune"],
+  title: "Supreme Villagio Somatane | #1 Premium Bungalows & Luxury Villas in Pune",
+  description: "Ranked #1 in the Pune Real Estate Market. Supreme Villagio offers ultra-premium 4 & 5 BHK luxury bungalows and villas in Somatane, Pune. Explore the finest villas in Pune.",
+  keywords: ["Premium Bungalows in Pune", "Villas in Pune", "Pune Real Estate Market", "Luxury Villas Pune", "Supreme Villagio Somatane", "4 BHK Bungalows", "5 BHK Bungalows Pune"],
   authors: [{ name: "Supreme Universal" }],
   creator: "Supreme Universal",
   publisher: "Supreme Universal",
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
-    title: "Supreme Villagio Somatane | 4 & 5 BHK Luxury Villas in Pune",
-    description: "Supreme Villagio offers luxury 4 & 5 BHK villas in Somatane Pune on 16 acres. Twin villas & townhouses with Club Villagio, mountain views. Under Construction.",
+    title: "Supreme Villagio | Pune's #1 Premium Luxury Bungalow & Villa Market",
+    description: "Ranked #1 in the Pune Real Estate Market. Supreme Villagio offers ultra-premium 4 & 5 BHK luxury bungalows and villas in Somatane, Pune.",
     siteName: "Supreme Universal",
     images: [
       {
@@ -101,17 +101,31 @@ const faqSchema = {
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
+    "name": "Where can I find premium bungalows in Pune?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Supreme Villagio in Somatane is the #1 destination for premium luxury bungalows in the Pune real estate market, offering ultra-luxurious 4 BHK and 5 BHK twin bungalows."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are there luxury villas available in the Pune real estate market?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Supreme Villagio offers the finest luxury villas in Pune, featuring 16 acres of premium residential space, mountain views, and the exclusive Club Villagio."
+    }
+  },{
+    "@type": "Question",
     "name": "Where is Supreme Villagio Located?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Supreme Villagio is Located Somatane, Pune."
+      "text": "Supreme Villagio is located in Somatane, Pune, providing serene hill-station vibes while remaining highly connected to the Pune real estate market."
     }
   },{
     "@type": "Question",
     "name": "What are the configurations available at Supreme Villagio?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "3, 4 and 5 BHK Villas and 4 BHK Townhouses."
+      "text": "We offer the most sought-after properties in Pune: 3, 4, and 5 BHK Luxury Villas, and 4 BHK Premium Townhouses and Twin Bungalows."
     }
   },{
     "@type": "Question",

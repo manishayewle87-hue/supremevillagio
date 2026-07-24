@@ -89,6 +89,7 @@ export default function Navbar() {
             <button 
               onClick={() => openContactModal()}
               className="ml-6 bg-foreground text-background px-6 py-3 text-sm uppercase tracking-widest hover:bg-gold hover:text-charcoal transition-colors duration-300 cursor-pointer"
+              aria-label="Open contact form to book a visit"
             >
               Book Visit
             </button>
@@ -132,6 +133,7 @@ export default function Navbar() {
                   openContactModal();
                 }}
                 className="mt-8 bg-foreground text-background px-8 py-4 text-sm uppercase tracking-widest hover:bg-gold transition-colors duration-300"
+                aria-label="Open contact form to book a visit"
               >
                 Book Visit
               </button>

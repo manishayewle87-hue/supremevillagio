@@ -113,10 +113,14 @@ export default function HeroSection({
           <button 
             onClick={openContactModal}
             className="hero-text-reveal bg-gold text-charcoal px-8 py-4 text-sm uppercase tracking-widest hover:bg-white transition-colors duration-300 font-semibold"
+            aria-label="Book a private tour of Supreme Villagio"
           >
             Book Private Tour
           </button>
-          <button className="hero-text-reveal flex items-center justify-center gap-3 border border-cream/30 text-cream px-8 py-4 text-sm uppercase tracking-widest hover:bg-cream/10 transition-colors duration-300 backdrop-blur-sm">
+          <button 
+            className="hero-text-reveal flex items-center justify-center gap-3 border border-cream/30 text-cream px-8 py-4 text-sm uppercase tracking-widest hover:bg-cream/10 transition-colors duration-300 backdrop-blur-sm"
+            aria-label="Watch the Supreme Villagio walkthrough film"
+          >
             <Play size={16} /> Watch Film
           </button>
         </div>

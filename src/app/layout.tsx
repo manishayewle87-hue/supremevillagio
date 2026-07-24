@@ -257,6 +257,17 @@ const localBusinessSchema = {
     "latitude": 18.6517173,
     "longitude": 73.6845348
   },
+  "areaServed": [
+    {"@type": "City", "name": "Pune"},
+    {"@type": "City", "name": "Somatane"},
+    {"@type": "City", "name": "Hinjawadi"},
+    {"@type": "City", "name": "Baner"},
+    {"@type": "City", "name": "Koregaon Park"},
+    {"@type": "City", "name": "Aundh"},
+    {"@type": "City", "name": "Wakad"},
+    {"@type": "City", "name": "Talegaon"},
+    {"@type": "City", "name": "Balewadi"}
+  ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
@@ -264,6 +275,22 @@ const localBusinessSchema = {
     ],
     "opens": "09:00",
     "closes": "18:00"
+  }
+};
+
+const videoObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Supreme Villagio Somatane | Luxury Villas Walkthrough",
+  "description": "Experience the ultimate luxury lifestyle at Supreme Villagio in Somatane, Pune. Explore our 4 & 5 BHK Twin Bungalows.",
+  "thumbnailUrl": [
+    "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg"
+  ],
+  "uploadDate": "2026-07-24T08:00:00+05:30",
+  "contentUrl": "https://d66htbxvzotmo.cloudfront.net/media/wpQrzK_FinalMenuVideomp4.mp4",
+  "embedUrl": "https://www.supremesvillagio.com/",
+  "publisher": {
+    "@id": "https://www.supremesvillagio.com/#organization"
   }
 };
 
@@ -312,6 +339,11 @@ export default function RootLayout({
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <Script
+          id="video-object-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema) }}
         />
         
         {/* Meta Pixel Code */}

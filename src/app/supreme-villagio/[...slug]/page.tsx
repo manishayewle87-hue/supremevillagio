@@ -3,14 +3,15 @@ import LandingPageTemplate from '@/components/layout/LandingPageTemplate';
 import { generateSeoDataFromSlug, generateSeoSlugs } from '@/lib/seo-data';
 import Script from 'next/script';
 
+export const dynamicParams = true; // Enables On-Demand ISR for 12,000+ pages
+export const revalidate = 86400; // ISR Revalidate every 24 hours
+
 export function generateStaticParams() {
   const slugs = generateSeoSlugs();
   return slugs.map((slugArray) => ({
     slug: slugArray, // slug is now an array of path segments
   }));
 }
-
-export const revalidate = 86400; // ISR Revalidate every 24 hours
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const resolvedParams = await params;

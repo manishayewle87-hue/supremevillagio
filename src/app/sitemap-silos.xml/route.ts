@@ -1,9 +1,10 @@
-import { generateSeoSlugs } from '@/lib/seo-data';
+import { getAllSeoSlugStrings } from '@/lib/seo-data';
 
 export async function GET() {
   const baseUrl = 'https://www.supremesvillagio.com';
   const lastModified = new Date().toISOString();
-  const slugs = generateSeoSlugs();
+  // Get all 12,000+ programmatic combinations instantly
+  const slugs = getAllSeoSlugStrings();
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

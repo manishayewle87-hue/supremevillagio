@@ -123,12 +123,21 @@ export default function Footer() {
         {/* MahaRERA Section */}
         <div className="py-8 border-t border-charcoal-light text-center">
           <h4 className="text-gold font-heading text-sm uppercase tracking-widest mb-4">MahaRERA Registration</h4>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-sm text-stone">
-            <p><strong>Phase 1:</strong> P52100046867</p>
-            <p className="hidden md:block">|</p>
-            <p><strong>Phase 2:</strong> P52100049506</p>
-            <p className="hidden md:block">|</p>
-            <p><strong>Phase 3:</strong> P52100055048</p>
+          <div className="flex flex-col md:flex-row justify-center items-start gap-8 text-sm text-stone mt-6">
+            <div className="flex flex-col items-center">
+              <img src="https://cdn.supremeuniversal.com/media/SupremeVillagioIP52100046867_cwrz1A.jpg" alt="Phase 1 QR Code" className="w-20 h-20 mb-3 rounded-sm opacity-90 hover:opacity-100 transition-opacity" />
+              <p><strong>Phase 1:</strong> P52100046867</p>
+            </div>
+            <div className="hidden md:block h-24 w-px bg-charcoal-light self-center"></div>
+            <div className="flex flex-col items-center">
+              <img src="https://cdn.supremeuniversal.com/media/SupremeVillagioIIP52100049506_zdy3oY.jpg" alt="Phase 2 QR Code" className="w-20 h-20 mb-3 rounded-sm opacity-90 hover:opacity-100 transition-opacity" />
+              <p><strong>Phase 2:</strong> P52100049506</p>
+            </div>
+            <div className="hidden md:block h-24 w-px bg-charcoal-light self-center"></div>
+            <div className="flex flex-col items-center">
+              <img src="https://cdn.supremeuniversal.com/media/SUPREMEVILLAGIOIIIP52100055048_6dYFb3.jpg" alt="Phase 3 QR Code" className="w-20 h-20 mb-3 rounded-sm opacity-90 hover:opacity-100 transition-opacity" />
+              <p><strong>Phase 3:</strong> P52100055048</p>
+            </div>
           </div>
           <p className="text-xs text-stone mt-4 max-w-3xl mx-auto">
             Available at <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-gold underline underline-offset-2">maharera.mahaonline.gov.in</a>

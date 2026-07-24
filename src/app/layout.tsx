@@ -351,8 +351,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema) }}
         />
         
-        {/* Meta Pixel Code */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+        {/* Meta Pixel Code - Offloaded from Main Thread */}
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -367,14 +367,28 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Predictive Analytics & Heatmapping (e.g. Microsoft Clarity / PostHog) */}
-        <Script id="predictive-analytics" strategy="afterInteractive">
+        {/* Predictive Analytics & Heatmapping - Offloaded from Main Thread */}
+        <Script id="predictive-analytics" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_ID || ""}");
+          `}
+        </Script>
+        {/* Progressive Web App (PWA) Service Worker Registration */}
+        <Script id="pwa-sw" strategy="lazyOnload">
+          {`
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                  console.log('PWA ServiceWorker registered successfully');
+                }, function(err) {
+                  console.log('PWA ServiceWorker registration failed: ', err);
+                });
+              });
+            }
           `}
         </Script>
       </head>

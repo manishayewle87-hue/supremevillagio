@@ -7,6 +7,7 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import TextReveal from "@/components/ui/TextReveal";
 import { useModal } from "@/contexts/ModalContext";
+import DynamicPrice from "@/components/ui/DynamicPrice";
 
 interface HeroSectionProps {
   headlineLine1?: string;
@@ -139,7 +140,7 @@ export default function HeroSection({
             </div>
             <div className="px-2 md:px-4 mt-2 md:mt-0">
               <p className="text-[10px] md:text-xs text-gold uppercase tracking-widest mb-1 font-semibold">Starting Price</p>
-              <p className="text-xs md:text-sm text-cream font-light text-gold">{pricing}</p>
+              <p className="text-xs md:text-sm text-cream font-light text-gold"><DynamicPrice fallbackPrice={pricing} /></p>
             </div>
           </div>
         </div>

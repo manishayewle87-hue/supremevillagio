@@ -3,7 +3,7 @@ import { getAllSeoSlugStrings } from '@/lib/seo-data';
 export async function GET() {
   const baseUrl = 'https://www.supremesvillagio.com';
   const lastModified = new Date().toISOString();
-  // Get all 12,000+ programmatic combinations instantly
+  // Get all 38,000+ HNI programmatic combinations instantly
   const slugs = getAllSeoSlugStrings();
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

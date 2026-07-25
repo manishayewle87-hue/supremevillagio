@@ -6,26 +6,25 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: ['Googlebot', 'Bingbot', 'Applebot', 'YandexBot', 'DuckDuckBot', 'Slurp', 'Baiduspider'],
+        userAgent: ['Googlebot', 'Bingbot', 'Applebot', 'YandexBot', 'Baiduspider', 'DuckDuckBot'],
         allow: '/',
+        crawlDelay: 2, // Ensure continuous aggressive crawling without DDoS'ing the Edge Network
       },
       {
         userAgent: [
           'AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot', 'PetalBot', 'YandexImages',
           'MegaIndex.ru', 'BLEXBot', 'BuiltBotTough', 'DataForSeoBot'
         ],
-        disallow: '/', // Aggressively block scrapers to conserve compute for actual buyers & engines
+        disallow: '/', // Block toxic SEO scrapers to conserve compute strictly for HNI buyers & Search Engines
       },
       {
         userAgent: '*',
         allow: '/',
+        crawlDelay: 5,
       },
     ],
     sitemap: [
-      `${baseUrl}/sitemap.xml`,
-      `${baseUrl}/sitemap-core.xml`,
-      `${baseUrl}/sitemap-silos.xml`,
-      `${baseUrl}/sitemap-media.xml`,
+      `${baseUrl}/sitemap.xml` // The root index handles all chunked silos natively
     ],
     host: baseUrl,
   };

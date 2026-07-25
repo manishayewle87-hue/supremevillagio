@@ -9,7 +9,23 @@ export async function GET() {
     <lastmod>${lastModified}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${baseUrl}/sitemap-silos.xml</loc>
+    <loc>${baseUrl}/sitemap-silos-1.xml</loc>
+    <lastmod>${lastModified}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-silos-2.xml</loc>
+    <lastmod>${lastModified}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-silos-3.xml</loc>
+    <lastmod>${lastModified}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-silos-4.xml</loc>
+    <lastmod>${lastModified}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-silos-5.xml</loc>
     <lastmod>${lastModified}</lastmod>
   </sitemap>
   <sitemap>

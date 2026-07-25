@@ -14,15 +14,23 @@ export async function GET() {
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${corePages.map(page => `
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  ${corePages.map(page => {
+    const pageUrl = `${baseUrl}${page.url}`;
+    return `
     <url>
-      <loc>${baseUrl}${page.url}</loc>
+      <loc>${pageUrl}</loc>
+      <xhtml:link rel="alternate" hreflang="en-US" href="${pageUrl}" />
+      <xhtml:link rel="alternate" hreflang="en-GB" href="${pageUrl}" />
+      <xhtml:link rel="alternate" hreflang="en-AE" href="${pageUrl}" />
+      <xhtml:link rel="alternate" hreflang="en-IN" href="${pageUrl}" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="${pageUrl}" />
       <lastmod>${lastModified}</lastmod>
       <changefreq>${page.changefreq}</changefreq>
       <priority>${page.priority}</priority>
     </url>
-  `).join('')}
+    `;
+  }).join('')}
 </urlset>`;
 
   return new Response(xml.trim(), {

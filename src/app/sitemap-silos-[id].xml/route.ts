@@ -3,9 +3,10 @@ import { NextRequest } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<any> }
 ) {
-  const idStr = params.id.replace('.xml', '');
+  const resolvedParams = await params;
+  const idStr = resolvedParams.id.replace('.xml', '');
   const id = parseInt(idStr, 10);
   
   if (isNaN(id) || id < 1 || id > 5) {

@@ -68,6 +68,10 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: cspHeader,
           },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400',
+          },
         ],
       },
     ];

@@ -51,6 +51,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.supremesvillagio.com/",
+    languages: {
+      "en-US": "https://www.supremesvillagio.com/",
+      "en-GB": "https://www.supremesvillagio.com/",
+      "en-AE": "https://www.supremesvillagio.com/",
+      "en-IN": "https://www.supremesvillagio.com/",
+      "x-default": "https://www.supremesvillagio.com/"
+    }
   },
   verification: {
     google: "tjTIqD28r3w5lEq8E_dlNvwaAawCwF057ABSDOHISXI",
@@ -62,6 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
+    alternateLocale: ["en_US", "en_GB", "en_AE"],
     url: "https://www.supremeuniversal.com/residential-property/pune/somatane/supreme-villagio/",
     title: "Supreme Villagio | Pune's #1 Premium Luxury Bungalow & Villa Market",
     description: "Ranked #1 in the Pune Real Estate Market. Supreme Villagio offers ultra-premium 4 & 5 BHK luxury bungalows and villas in Somatane, Pune.",

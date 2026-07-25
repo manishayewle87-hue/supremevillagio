@@ -219,6 +219,39 @@ const organizationSchema = {
     "https://www.facebook.com/SupremeUniversalRealEstate/",
     "https://www.instagram.com/supreme_universal/",
     "https://www.linkedin.com/company/supremeuniversal/"
+  ],
+  "subOrganization": [
+    {
+      "@type": "RealEstateAgent",
+      "name": "Supreme Estia Baner",
+      "url": "https://www.supremeuniversal.com/residential-property/pune/baner/supreme-estia/"
+    },
+    {
+      "@type": "RealEstateAgent",
+      "name": "Supreme Amadore Baner"
+    },
+    {
+      "@type": "RealEstateAgent",
+      "name": "Supreme Adima Baner"
+    },
+    {
+      "@type": "RealEstateAgent",
+      "name": "Supreme Pallacio Baner"
+    }
+  ],
+  "owns": [
+    {
+      "@type": "Product",
+      "name": "Supreme Villagio Somatane"
+    },
+    {
+      "@type": "Product",
+      "name": "Supreme Estia Baner"
+    },
+    {
+      "@type": "Product",
+      "name": "Supreme Amadore"
+    }
   ]
 };
 

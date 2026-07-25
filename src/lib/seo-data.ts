@@ -21,7 +21,11 @@ export const SEO_KEYWORD_MATRIX = {
     "premium-houses", "premium-living", "premium-family-homes",
     // Row Houses & Duplex
     "luxury-row-houses", "premium-row-houses", "row-house-projects", "gated-row-houses",
-    "luxury-townhouses", "luxury-duplex", "duplex-homes", "duplex-villa", "premium-duplex-homes"
+    "luxury-townhouses", "luxury-duplex", "duplex-homes", "duplex-villa", "premium-duplex-homes",
+    // Supreme Universal Ecosystem (Brand Hijacking)
+    "supreme-universal-projects", "supreme-estia", "supreme-estia-alternatives", 
+    "supreme-amadore", "supreme-adima", "supreme-pallacio", "supreme-boulevard", 
+    "supreme-universal-luxury", "supreme-universal-pune-projects", "best-supreme-projects"
   ],
 
   // CLUSTERS 7, 8, 10, 11, 12, 14: HNI & Budget Modifiers (38 Modifiers)

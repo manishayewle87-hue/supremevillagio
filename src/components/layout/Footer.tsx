@@ -147,6 +147,9 @@ export default function Footer() {
         <div className="pt-8 border-t border-charcoal-light flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone">
           <p>&copy; {new Date().getFullYear()} Supreme Villagio. All Rights Reserved.</p>
           <div className="flex gap-6">
+            <Link href="/ecosystem" className="hover:text-gold transition-colors">
+              Developer Ecosystem
+            </Link>
             <Link href="/privacy" className="hover:text-gold transition-colors">
               Privacy Policy
             </Link>

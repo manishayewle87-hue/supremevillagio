@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import LandingPageTemplate from '@/components/layout/LandingPageTemplate';
-import { generateSeoDataFromSlug, generateSeoSlugs } from '@/lib/seo-data';
+import { generateSeoDataFromSlug, generateSeoSlugs, isValidSeoSlug } from '@/lib/seo-data';
 import Script from 'next/script';
+import { notFound } from 'next/navigation';
 
 export const dynamicParams = true; // Enables On-Demand ISR for 12,000+ pages
 export const revalidate = 86400; // ISR Revalidate every 24 hours
@@ -16,6 +17,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const slugArray = resolvedParams.slug || [];
+  
+  // Security Patch: Prevent Metadata "Soft 404" spam injection
+  if (!isValidSeoSlug(slugArray)) {
+    notFound();
+  }
+
   const urlPath = slugArray.join('/');
   const data = generateSeoDataFromSlug(slugArray);
   
@@ -37,6 +44,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function DynamicSeoPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const resolvedParams = await params;
   const slugArray = resolvedParams.slug || [];
+  
+  // Security Patch: Prevent "Soft 404" spam injection
+  if (!isValidSeoSlug(slugArray)) {
+    notFound(); // Instantly returns HTTP 404, blocking Google from indexing toxic/garbage URLs
+  }
+
   const urlPath = slugArray.join('/');
   const data = generateSeoDataFromSlug(slugArray);
 

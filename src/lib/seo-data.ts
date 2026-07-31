@@ -97,6 +97,23 @@ export function getAllSeoSlugStrings(): string[][] {
   return slugs;
 }
 
+// Security Validation: Prevents "Soft 404" spam injection by explicitly validating the exact matrix permutation
+export function isValidSeoSlug(slugs: string[]): boolean {
+  if (!slugs || slugs.length < 2 || slugs.length > 3) return false;
+  
+  const isValidLocation = SEO_KEYWORD_MATRIX.locations.includes(slugs[0]);
+  const isValidCategory = SEO_KEYWORD_MATRIX.categories.includes(slugs[1]);
+  
+  if (!isValidLocation || !isValidCategory) return false;
+  
+  if (slugs.length === 3) {
+    const isValidModifier = SEO_KEYWORD_MATRIX.modifiers.includes(slugs[2]);
+    if (!isValidModifier) return false;
+  }
+  
+  return true;
+}
+
 // Parser that dynamically understands the HNI keywords
 export function generateSeoDataFromSlug(slugs: string[]) {
   const rawLoc = slugs[0] || "pune";

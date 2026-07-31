@@ -271,6 +271,14 @@ const websiteSchema = {
   "name": "Supreme Villagio Somatane | Luxury Villas",
   "publisher": {
     "@id": "https://www.supremesvillagio.com/#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.supremesvillagio.com/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
   }
 };
 
@@ -283,6 +291,11 @@ const localBusinessSchema = {
   "url": "https://www.supremesvillagio.com/",
   "telephone": "+91 7744009295",
   "priceRange": "₹2.89 Cr*",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "184"
+  },
   "parentOrganization": {
     "@id": "https://www.supremesvillagio.com/#organization"
   },

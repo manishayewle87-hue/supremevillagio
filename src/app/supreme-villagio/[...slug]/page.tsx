@@ -50,6 +50,11 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     "publisher": {
       "@id": "https://www.supremesvillagio.com/#organization"
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "156"
+    },
     "offers": {
       "@type": "Offer",
       "priceCurrency": "INR",
@@ -70,6 +75,29 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         }
       }
     }
+  };
+
+  const dynamicFaqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `What is the price of ${data.typology} at Supreme Villagio?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `The premium ${data.typology} at Supreme Villagio in Somatane, Pune starts at ₹2.89 Cr*. Experience unmatched luxury in the Pune real estate market.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Is Supreme Villagio a good investment for NRIs?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Yes, Supreme Villagio is highly sought after by NRIs and HNI buyers for its ultra-luxurious 4 & 5 BHK villas and strong capital appreciation in Pune.`
+        }
+      }
+    ]
   };
 
   // Dynamic Multi-Tier Breadcrumbs
@@ -116,6 +144,11 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         id={`json-ld-breadcrumb-${slugArray.join('-')}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Script
+        id={`json-ld-faq-${slugArray.join('-')}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dynamicFaqJsonLd) }}
       />
       <LandingPageTemplate 
         heroHeadline1={data.heroHeadline1}

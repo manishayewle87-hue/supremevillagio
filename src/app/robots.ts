@@ -20,6 +20,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: '/*?*', // Aggressively block all dynamic query parameter spider traps
         crawlDelay: 5,
       },
     ],

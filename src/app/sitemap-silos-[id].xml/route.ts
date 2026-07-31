@@ -9,7 +9,7 @@ export async function GET(
   const idStr = resolvedParams.id.replace('.xml', '');
   const id = parseInt(idStr, 10);
   
-  if (isNaN(id) || id < 1 || id > 5) {
+  if (isNaN(id) || id < 1 || id > 6) {
     return new Response('Not Found', { status: 404 });
   }
 

@@ -35,7 +35,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.supremesvillagio.com"),
   title: "Supreme Villagio Somatane | #1 Premium Bungalows & Luxury Villas in Pune",
   description: "Ranked #1 in the Pune Real Estate Market. Supreme Villagio offers ultra-premium 4 & 5 BHK luxury bungalows and villas in Somatane, Pune. Explore the finest villas in Pune.",
-  keywords: ["Premium Bungalows in Pune", "Villas in Pune", "Pune Real Estate Market", "Luxury Villas Pune", "Supreme Villagio Somatane", "4 BHK Bungalows", "5 BHK Bungalows Pune"],
+  keywords: [
+    "Premium Bungalows in Pune", "Villas in Pune", "Pune Real Estate Market", 
+    "Luxury Villas Pune", "Supreme Villagio Somatane", "4 BHK Bungalows", 
+    "5 BHK Bungalows Pune", "Supreme Villagio", "Club Villagio", 
+    "Club Villagio Somatane", "Supreme Villagio Pune", "Supreme Universal Somatane"
+  ],
   authors: [{ name: "Supreme Universal" }],
   creator: "Supreme Universal",
   publisher: "Supreme Universal",

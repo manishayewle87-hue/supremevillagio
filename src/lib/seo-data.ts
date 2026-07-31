@@ -25,7 +25,13 @@ export const SEO_KEYWORD_MATRIX = {
     // Supreme Universal Ecosystem (Brand Hijacking)
     "supreme-universal-projects", "supreme-estia", "supreme-estia-alternatives", 
     "supreme-amadore", "supreme-adima", "supreme-pallacio", "supreme-boulevard", 
-    "supreme-universal-luxury", "supreme-universal-pune-projects", "best-supreme-projects"
+    "supreme-universal-luxury", "supreme-universal-pune-projects", "best-supreme-projects",
+    
+    // Supreme Villagio Exact Match Core Themes (Brand Hardening)
+    "supreme-villagio", "supreme-villagio-somatane", "supreme-villagio-pune", 
+    "supreme-villagio-villas", "club-villagio", "club-villagio-somatane",
+    "supreme-villagio-4-bhk", "supreme-villagio-5-bhk", "supreme-universal-villagio",
+    "villagio-somatane", "supreme-villagio-reviews", "supreme-villagio-floor-plans"
   ],
 
   // CLUSTERS 7, 8, 10, 11, 12, 14: HNI & Budget Modifiers (38 Modifiers)
@@ -127,6 +133,7 @@ export function generateSeoDataFromSlug(slugs: string[]) {
   if (rawCategory.includes("row-house")) typologyText = "Luxury Row Houses";
   if (rawCategory.includes("duplex")) typologyText = "Premium Duplex Homes";
   if (rawCategory.includes("bungalow")) typologyText = "Ultra Luxury Twin Bungalows";
+  if (rawCategory.includes("villagio")) typologyText = "Supreme Villagio Luxury Villas";
 
   const optimizedDescription = `Discover the pinnacle of luxury living. Supreme Villagio offers ${typologyText.toLowerCase()} in the ${formattedLoc} real estate market. Perfectly designed for HNI buyers seeking ${formattedMod || "exclusive properties"} in the ₹3-10 Cr segment.`;
 

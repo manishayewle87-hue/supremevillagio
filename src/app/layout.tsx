@@ -233,6 +233,13 @@ const organizationSchema = {
     "https://www.instagram.com/supreme_universal/",
     "https://www.linkedin.com/company/supremeuniversal/"
   ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91 7744009295",
+    "contactType": "sales",
+    "areaServed": "IN",
+    "availableLanguage": ["en", "hi", "mr"]
+  },
   "subOrganization": [
     {
       "@type": "RealEstateAgent",

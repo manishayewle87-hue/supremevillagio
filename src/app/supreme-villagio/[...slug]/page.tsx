@@ -34,6 +34,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: data.description,
       type: "website",
       url: `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+      images: [
+        {
+          url: "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        }
+      ],
     },
     alternates: {
       canonical: `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
@@ -58,6 +66,10 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     "@type": "RealEstateListing",
     "name": data.title,
     "description": data.description,
+    "image": [
+      "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
+      "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg"
+    ],
     "url": `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
     "datePosted": new Date().toISOString().split('T')[0],
     "publisher": {

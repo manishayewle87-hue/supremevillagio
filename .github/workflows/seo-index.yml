@@ -1,0 +1,26 @@
+name: "Ultra-Advanced SEO Automation"
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Run automatically every 3 days at midnight UTC to force recrawls
+    - cron: '0 0 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    name: "Push IndexNow Protocol"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Execute IndexNow API Request
+        run: node scripts/indexnow-submit.js

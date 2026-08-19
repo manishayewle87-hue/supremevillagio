@@ -59,7 +59,7 @@ export default function LocationSection({ typology = "luxury villas" }: { typolo
         <div className="lg:w-2/3 h-[500px] md:h-[700px] relative rounded-none overflow-hidden border border-cream/30 shadow-2xl">
           <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
              <iframe 
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.273187219985!2d73.68453481119799!3d18.65171738240502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9c3f3ab8a43%3A0xc34cc5a2a229ceeb!2sSupreme%20Villagio!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.273!2d73.687351!3d18.6936968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb2e849746ff%3A0xec363f495813eb4!2sSupreme%20Villagio!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                width="100%" 
                height="100%" 
                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(80%) grayscale(50%)" }}

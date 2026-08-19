@@ -314,8 +314,8 @@ const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 18.6517173,
-    "longitude": 73.6845348
+    "latitude": 18.6936968,
+    "longitude": 73.687351
   },
   "areaServed": [
     {"@type": "City", "name": "Pune"},

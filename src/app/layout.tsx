@@ -261,15 +261,15 @@ const organizationSchema = {
   ],
   "owns": [
     {
-      "@type": "Product",
+      "@type": "Brand",
       "name": "Supreme Villagio Somatane"
     },
     {
-      "@type": "Product",
+      "@type": "Brand",
       "name": "Supreme Estia Baner"
     },
     {
-      "@type": "Product",
+      "@type": "Brand",
       "name": "Supreme Amadore"
     }
   ]

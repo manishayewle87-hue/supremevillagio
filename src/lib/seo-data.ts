@@ -8,8 +8,16 @@ export const SEO_KEYWORD_MATRIX = {
     "dehu-road", "chinchwad", "nigdi"
   ],
   
-  // CLUSTERS 1-6: Luxury Property Types (36 Types)
+  // CLUSTERS 1-6: Luxury Property Types (70+ Types)
   categories: [
+    // Configuration Specific (Highest Intent)
+    "4-bhk-villas", "5-bhk-villas", "4-bhk-bungalows", "5-bhk-bungalows", 
+    "4-bhk-row-houses", "5-bhk-twin-villas", "4-bhk-townhouses", "4-bhk-luxury-villas",
+    "5-bhk-luxury-villas", "4-bhk-premium-homes", "5-bhk-premium-homes",
+    // Bungalows & Twin Villas (Crucial Indian Market Terms)
+    "bungalows", "twin-bungalows", "twin-villas", "luxury-bungalows", "premium-bungalows",
+    "bungalows-for-sale", "independent-bungalows", "gated-bungalow-projects", "twin-bungalow-projects",
+    "designer-bungalows", "modern-bungalows", "spacious-bungalows",
     // Villas
     "luxury-villas", "premium-villas", "villas-for-sale", "independent-villas", 
     "modern-villas", "designer-villas", "smart-villas", "luxury-gated-villas", 
@@ -22,6 +30,9 @@ export const SEO_KEYWORD_MATRIX = {
     // Row Houses & Duplex
     "luxury-row-houses", "premium-row-houses", "row-house-projects", "gated-row-houses",
     "luxury-townhouses", "luxury-duplex", "duplex-homes", "duplex-villa", "premium-duplex-homes",
+    // Broad Pune Real Estate Terms
+    "pune-real-estate", "pune-property-investment", "luxury-real-estate-pune", 
+    "best-real-estate-projects-pune", "top-real-estate-pune",
     // Supreme Universal Ecosystem (Brand Hijacking)
     "supreme-universal-projects", "supreme-estia", "supreme-estia-alternatives", 
     "supreme-amadore", "supreme-adima", "supreme-pallacio", "supreme-boulevard", 

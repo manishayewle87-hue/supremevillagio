@@ -38,14 +38,18 @@ export const SEO_KEYWORD_MATRIX = {
     "supreme-amadore", "supreme-adima", "supreme-pallacio", "supreme-boulevard", 
     "supreme-universal-luxury", "supreme-universal-pune-projects", "best-supreme-projects",
     
-    // Supreme Villagio Exact Match Core Themes (Brand Hardening)
+    // Supreme Villagio Extreme Brand Hardening (Monopoly Strategy)
     "supreme-villagio", "supreme-villagio-somatane", "supreme-villagio-pune", 
-    "supreme-villagio-villas", "club-villagio", "club-villagio-somatane",
+    "supreme-villagio-villas", "supreme-villagio-price", "supreme-villagio-brochure",
+    "supreme-villagio-floor-plans", "supreme-villagio-master-plan", "supreme-villagio-reviews",
+    "supreme-villagio-possession-date", "supreme-villagio-rera", "supreme-villagio-sample-flat",
+    "supreme-villagio-construction-status", "supreme-villagio-location-map",
     "supreme-villagio-4-bhk", "supreme-villagio-5-bhk", "supreme-universal-villagio",
-    "villagio-somatane", "supreme-villagio-reviews", "supreme-villagio-floor-plans"
+    "villagio-somatane", "club-villagio", "club-villagio-somatane", "club-villagio-membership",
+    "supreme-villagio-contact-number", "supreme-villagio-booking", "supreme-villagio-site-visit"
   ],
 
-  // CLUSTERS 7, 8, 10, 11, 12, 14: HNI & Budget Modifiers (38 Modifiers)
+  // CLUSTERS 7, 8, 10, 11, 12, 14, 15: HNI & Budget Modifiers
   modifiers: [
     // Budgets (Cluster 7)
     "under-3-crore", "under-4-crore", "under-5-crore", "under-7-crore", "under-10-crore",

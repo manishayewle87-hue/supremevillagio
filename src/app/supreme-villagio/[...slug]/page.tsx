@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import LandingPageTemplate from '@/components/layout/LandingPageTemplate';
-import { generateSeoDataFromSlug, generateSeoSlugs, isValidSeoSlug } from '@/lib/seo-data';
+import RelatedProperties from '@/components/sections/RelatedProperties';
+import { generateSeoDataFromSlug, generateSeoSlugs, isValidSeoSlug, getRelatedSlugs } from '@/lib/seo-data';
 import Script from 'next/script';
 import { notFound } from 'next/navigation';
 
@@ -60,6 +61,7 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
 
   const urlPath = slugArray.join('/');
   const data = generateSeoDataFromSlug(slugArray);
+  const relatedSlugs = getRelatedSlugs(slugArray, 6);
 
   const listingJsonLd = {
     "@context": "https://schema.org",
@@ -183,6 +185,7 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         pricing={data.pricing}
         typology={data.typology}
       />
+      <RelatedProperties relatedSlugs={relatedSlugs} />
     </>
   );
 }

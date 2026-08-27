@@ -1,120 +1,83 @@
-import { getPostBySlug, getPostSlugs, markdownToHtml } from '@/lib/markdown';
-import { Metadata } from 'next';
+import React from 'react';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import { PILLAR_POSTS, getPostBySlug } from '@/lib/blog-data';
+import Script from 'next/script';
 
-export async function generateStaticParams() {
-  const slugs = getPostSlugs();
-  return slugs.map((slug) => ({
-    slug: slug.replace(/\.md$/, ''),
+export const dynamicParams = true;
+
+export function generateStaticParams() {
+  return PILLAR_POSTS.map((post) => ({
+    slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  try {
-    const post = getPostBySlug(slug);
-    return {
-      title: `${post.title} | Supreme Villagio Blog`,
-      description: post.description,
-      openGraph: {
-        title: post.title,
-        description: post.description,
-        type: "article",
-        url: `https://www.supremesvillagio.com/blog/${slug}`,
-        images: post.image ? [{ url: post.image }] : [],
-      },
-      alternates: {
-        canonical: `https://www.supremesvillagio.com/blog/${slug}`,
-      }
-    };
-  } catch (e) {
-    return {
-      title: "Blog Not Found"
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const post = getPostBySlug(resolvedParams.slug);
+  if (!post) return {};
+  
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
     }
-  }
+  };
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  let post;
-  
-  try {
-    post = getPostBySlug(slug);
-  } catch (e) {
-    notFound();
-  }
+  const resolvedParams = await params;
+  const post = getPostBySlug(resolvedParams.slug);
+  if (!post) notFound();
 
-  const contentHtml = await markdownToHtml(post.content);
-
-  // Advanced Blog Schema
-  const articleSchema = {
+  const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://www.supremesvillagio.com/blog/${slug}`
-    },
+    "@type": "Article",
     "headline": post.title,
-    "description": post.description,
-    "image": post.image,
-    "author": {
-      "@type": "Organization",
-      "name": "Supreme Universal"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Supreme Universal",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg"
-      }
-    },
-    "datePublished": new Date(post.date).toISOString()
+    "image": [post.image],
+    "datePublished": post.date,
+    "author": [{
+        "@type": "Organization",
+        "name": post.author,
+        "url": "https://www.supremesvillagio.com/"
+      }]
   };
 
   return (
-    <article className="pt-32 pb-24 bg-charcoal min-h-screen text-cream">
-      <script
+    <>
+      <Script
+        id={`json-ld-article-${post.slug}`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <Link href="/blog" className="inline-flex items-center text-xs text-gold uppercase tracking-widest hover:text-white transition-colors mb-12">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          Back to Journal
-        </Link>
+      <article className="pt-32 pb-20 px-4 md:px-8 max-w-4xl mx-auto min-h-screen">
+        <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-gold mb-6">
+          <span>{post.date}</span>
+          <span className="w-1 h-1 rounded-full bg-cream/30"></span>
+          <span>{post.author}</span>
+        </div>
+        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-forest mb-8 leading-tight">
+          {post.title}
+        </h1>
         
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-cream mb-6 leading-tight">
-            {post.title}
-          </h1>
-          <div className="flex items-center text-stone text-sm">
-            <span>By Supreme Universal</span>
-            <span className="mx-3 border-l border-stone/30 h-4"></span>
-            <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-          </div>
-        </header>
+        <div className="relative h-64 md:h-[500px] w-full overflow-hidden rounded-xl mb-16 shadow-2xl">
+          <img 
+            src={post.image} 
+            alt={post.title} 
+            className="object-cover w-full h-full"
+          />
+        </div>
 
-        {post.image && (
-          <div className="mb-16 aspect-[21/9] relative rounded-none overflow-hidden bg-charcoal-light">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src={post.image} 
-              alt={post.title} 
-              className="object-cover w-full h-full"
-            />
-          </div>
-        )}
-
-        {/* Markdown Content styling using global utility classes or arbitrary tailwind */}
         <div 
-          className="prose prose-lg prose-invert prose-headings:font-heading prose-headings:font-semibold prose-headings:text-gold prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-white max-w-none"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
+          className="prose prose-lg max-w-none text-forest/80 prose-headings:font-heading prose-headings:text-forest prose-headings:font-normal prose-a:text-gold hover:prose-a:text-gold/80 prose-strong:text-forest"
+          dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br/>').replace(/## (.*?)<br\/>/g, '<h2>$1</h2>').replace(/### (.*?)<br\/>/g, '<h3>$1</h3>').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') }}
         />
-      </div>
-    </article>
+      </article>
+    </>
   );
 }

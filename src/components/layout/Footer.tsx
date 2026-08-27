@@ -80,6 +80,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/locations" className="hover:text-gold transition-colors font-semibold">
+                  Property Sitemap
+                </Link>
+              </li>
+              <li>
                 <Link href="#contact" className="hover:text-gold transition-colors">
                   Contact Us
                 </Link>

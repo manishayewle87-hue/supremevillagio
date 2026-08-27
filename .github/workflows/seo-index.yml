@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  indexnow:
-    name: "Push IndexNow Protocol"
+  seo_indexing:
+    name: "Push APIs (IndexNow & Google Indexing)"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -21,6 +21,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Execute IndexNow API Request
+      - name: Execute IndexNow API Request (Bing, Yandex, Seznam)
         run: node scripts/indexnow-submit.js
+        
+      - name: Execute Google Indexing API Request (Googlebot)
+        env:
+          GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
+        run: node scripts/google-index.js

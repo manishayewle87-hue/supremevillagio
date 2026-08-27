@@ -11,6 +11,7 @@ import Script from "next/script";
 import { ModalProvider } from "@/contexts/ModalContext";
 import ContactModal from "@/components/layout/ContactModal";
 import BrochureModal from "@/components/layout/BrochureModal";
+import NriBanner from "@/components/layout/NriBanner";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -465,6 +466,7 @@ export default function RootLayout({
           <NoiseOverlay />
           <CustomCursor />
           <SmoothScroll>
+            <NriBanner />
             <Navbar />
             <main className="flex-grow">{children}</main>
             <Footer />

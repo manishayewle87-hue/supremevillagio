@@ -160,6 +160,31 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     "itemListElement": breadcrumbItems
   };
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": data.title,
+    "image": "https://d66htbxvzotmo.cloudfront.net/media/1Xi8pH_seologo.jpg",
+    "description": data.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "Supreme Universal"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "156"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+      "priceCurrency": "INR",
+      "price": "28900000",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    }
+  };
+
   return (
     <>
       <Script
@@ -176,6 +201,11 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         id={`json-ld-faq-${slugArray.join('-')}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(dynamicFaqJsonLd) }}
+      />
+      <Script
+        id={`json-ld-product-${slugArray.join('-')}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <LandingPageTemplate 
         heroHeadline1={data.heroHeadline1}

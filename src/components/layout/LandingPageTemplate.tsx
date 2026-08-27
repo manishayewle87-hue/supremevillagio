@@ -10,6 +10,8 @@ import AmenitiesSection from "@/components/sections/AmenitiesSection";
 import FloorPlanSection from "@/components/sections/FloorPlanSection";
 import DeveloperLegacySection from "@/components/sections/DeveloperLegacySection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
+import PressSection from "@/components/sections/PressSection";
+import ConstructionUpdatesSection from "@/components/sections/ConstructionUpdatesSection";
 
 export interface LandingPageProps {
   heroHeadline1?: string;
@@ -40,12 +42,14 @@ export default function LandingPageTemplate({
         pricing={pricing}
         typology={typology}
       />
+      <PressSection />
       <VisionSection typology={typology} />
       <ArchitectureSection />
       <MasterplanSection />
       <FeaturesSliderSection />
       <AmenitiesSection />
       <FloorPlanSection />
+      <ConstructionUpdatesSection />
       <LocationSection typology={typology} />
       <DeveloperLegacySection />
       <TestimonialSection />

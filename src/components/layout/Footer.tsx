@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import { useModal } from "@/contexts/ModalContext";
 
 export default function Footer() {
+  const { openContactModal, openBrochureModal } = useModal();
+
   return (
     <footer className="bg-charcoal text-cream py-16 border-t border-charcoal-light">
       <div className="container mx-auto px-6 md:px-12">
@@ -75,9 +78,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/brochure.pdf" className="hover:text-gold transition-colors">
+                <button onClick={openBrochureModal} className="hover:text-gold transition-colors text-left">
                   Download Brochure
-                </Link>
+                </button>
               </li>
               <li>
                 <Link href="/locations" className="hover:text-gold transition-colors font-semibold">
@@ -85,9 +88,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-gold transition-colors">
+                <button onClick={openContactModal} className="hover:text-gold transition-colors text-left">
                   Contact Us
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -98,7 +101,7 @@ export default function Footer() {
               <p>Supreme Villagio Site,</p>
               <p>Luxury Estate Road, Sector 1,</p>
               <p>
-                <button onClick={() => window.dispatchEvent(new Event('open-contact-modal'))} className="hover:text-gold transition-colors text-left flex items-center gap-2">
+                <button onClick={openContactModal} className="hover:text-gold transition-colors text-left flex items-center gap-2">
                   <Mail className="w-4 h-4" /> Request a Callback / Email Us
                 </button>
                 <a href="tel:+917744009295" className="hover:text-gold transition-colors block mt-2 font-medium">

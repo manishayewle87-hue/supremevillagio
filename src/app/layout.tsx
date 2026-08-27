@@ -10,6 +10,7 @@ import FloatingCTA from "@/components/layout/FloatingCTA";
 import Script from "next/script";
 import { ModalProvider } from "@/contexts/ModalContext";
 import ContactModal from "@/components/layout/ContactModal";
+import BrochureModal from "@/components/layout/BrochureModal";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -470,6 +471,7 @@ export default function RootLayout({
             <FloatingCTA />
           </SmoothScroll>
           <ContactModal />
+          <BrochureModal />
         </ModalProvider>
       </body>
     </html>

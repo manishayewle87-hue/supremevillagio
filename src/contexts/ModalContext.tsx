@@ -6,12 +6,16 @@ interface ModalContextType {
   isContactModalOpen: boolean;
   openContactModal: () => void;
   closeContactModal: () => void;
+  isBrochureModalOpen: boolean;
+  openBrochureModal: () => void;
+  closeBrochureModal: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export function ModalProvider({ children }: { children: ReactNode }) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
 
   return (
     <ModalContext.Provider
@@ -19,6 +23,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         isContactModalOpen,
         openContactModal: () => setIsContactModalOpen(true),
         closeContactModal: () => setIsContactModalOpen(false),
+        isBrochureModalOpen,
+        openBrochureModal: () => setIsBrochureModalOpen(true),
+        closeBrochureModal: () => setIsBrochureModalOpen(false),
       }}
     >
       {children}

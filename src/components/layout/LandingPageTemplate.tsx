@@ -26,6 +26,7 @@ export interface LandingPageProps {
   pricing?: string;
   typology?: string;
   intent?: string; // e.g. "floor-plan", "price", "reviews", "brochure", "location", "construction"
+  dynamicSeoParagraph?: string;
 }
 
 export default function LandingPageTemplate({ 
@@ -35,7 +36,8 @@ export default function LandingPageTemplate({
   highlightWords = ["Paradigm", "Horizontal", "Living"],
   pricing = "₹2.89 Cr*",
   typology = "4 & 5 BHK",
-  intent = "general"
+  intent = "general",
+  dynamicSeoParagraph
 }: LandingPageProps) {
   const { openBrochureModal } = useModal();
 
@@ -99,6 +101,15 @@ export default function LandingPageTemplate({
         pricing={pricing}
         typology={typology}
       />
+      {dynamicSeoParagraph && (
+        <section className="bg-charcoal text-cream/70 py-12 border-b border-white/5">
+          <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl">
+            <p className="text-lg md:text-xl font-light leading-relaxed">
+              {dynamicSeoParagraph}
+            </p>
+          </div>
+        </section>
+      )}
       {sections}
       <SeoSiloLinks currentTypology={typology} />
     </>

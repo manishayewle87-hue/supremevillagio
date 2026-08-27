@@ -215,6 +215,7 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         pricing={data.pricing}
         typology={data.typology}
         intent={slugArray.join('-').toLowerCase()}
+        dynamicSeoParagraph={data.dynamicSeoParagraph}
       />
       <RelatedProperties relatedSlugs={relatedSlugs} />
     </>

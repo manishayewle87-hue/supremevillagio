@@ -169,6 +169,8 @@ export function generateSeoDataFromSlug(slugs: string[]) {
 
   const optimizedDescription = `Discover the pinnacle of luxury living. Supreme Villagio offers ${typologyText.toLowerCase()} in the ${formattedLoc} real estate market. Perfectly designed for HNI buyers seeking ${formattedMod || "exclusive properties"} in the ₹3-10 Cr segment.`;
 
+  const dynamicSeoParagraph = `Welcome to the pinnacle of luxury real estate in ${formattedLoc}. If you are searching the market for premium ${formattedCat.toLowerCase()}, Supreme Villagio offers an unparalleled horizontal lifestyle experience that high-rise apartments simply cannot match. ${formattedMod ? `Specifically engineered for discerning buyers looking for ${formattedMod.toLowerCase()}, our ` : 'Our '}exclusive 16-acre master-planned community ensures that every aspect of your new home exceeds expectations. Discover why elite investors and families are securing their ${typologyText} residences in the highly coveted ${formattedLoc} micro-market today.`;
+
   return {
     heroHeadline1: formattedMod ? formattedMod : "A New Paradigm of",
     heroHeadline2: formattedCat,
@@ -177,7 +179,8 @@ export function generateSeoDataFromSlug(slugs: string[]) {
     pricing: "₹2.89 Cr*",
     typology: typologyText,
     title: finalTitle.replace(/\s+/g, ' ').trim(), // Clean up extra spaces
-    description: optimizedDescription
+    description: optimizedDescription,
+    dynamicSeoParagraph
   };
 }
 

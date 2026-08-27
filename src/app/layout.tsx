@@ -471,10 +471,40 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
             <FloatingCTA />
+            {/* WhatsApp Floating Widget */}
+            <a 
+              href="https://wa.me/917744009295?text=Hello,%20I%20am%20interested%20in%20Supreme%20Villagio." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-[100] hover:scale-110 transition-transform flex items-center justify-center group"
+              aria-label="Chat on WhatsApp"
+            >
+              <svg viewBox="0 0 32 32" className="w-8 h-8 fill-current"><path d="M16 2.016C8.282 2.016 2.016 8.282 2.016 16c0 2.456.638 4.862 1.848 6.966l-1.95 7.118 7.28-1.912a13.924 13.924 0 0 0 6.806 1.764c7.716 0 13.984-6.266 13.984-13.984S23.716 2.016 16 2.016zm0 25.644a11.583 11.583 0 0 1-5.918-1.626l-.426-.252-4.398 1.156 1.176-4.288-.276-.44A11.603 11.603 0 0 1 4.34 16c0-6.42 5.224-11.644 11.66-11.644S27.66 9.58 27.66 16s-5.224 11.66-11.66 11.66zm6.392-8.736c-.35-.176-2.072-1.024-2.392-1.14-.32-.116-.554-.176-.788.176-.232.35-.904 1.14-1.108 1.374-.202.232-.406.262-.756.086-.35-.176-1.48-.546-2.82-1.742-1.042-.932-1.746-2.082-1.95-2.432-.204-.35-.022-.54.152-.716.158-.158.35-.41.526-.614.174-.204.232-.35.35-.584.116-.232.058-.438-.03-.614-.086-.176-.788-1.902-1.078-2.604-.282-.684-.572-.59-.788-.602l-.67-.012c-.232 0-.612.088-.932.438s-1.224 1.196-1.224 2.918c0 1.72 1.254 3.38 1.428 3.614.174.232 2.464 3.762 5.968 5.274 2.87 1.238 3.42 1.05 4.032.962.612-.088 1.982-.81 2.26-1.592.28-.782.28-1.454.196-1.592-.086-.138-.32-.224-.67-.4Z"/></svg>
+            </a>
           </SmoothScroll>
           <ContactModal />
           <BrochureModal />
         </ModalProvider>
+        
+        {/* Meta Pixel & GTM Injection */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', 'YOUR_PIXEL_ID');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
       </body>
     </html>
   );

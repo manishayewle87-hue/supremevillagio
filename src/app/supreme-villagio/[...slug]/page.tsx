@@ -185,6 +185,42 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     }
   };
 
+  
+  // Breadcrumb Schema for SERP CTR Dominance
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": slugArray.map((slug, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      "item": `https://www.supremesvillagio.com/supreme-villagio/${slugArray.slice(0, index + 1).join('/')}`
+    }))
+  };
+
+  
+  // VideoObject Schema for Google Video Search Dominance
+  const videoJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": data.title,
+    "description": "Exclusive walkthrough film of Supreme Villagio in Somatane, Pune. Explore the ultra-premium 4 & 5 BHK luxury villas and bungalows.",
+    "thumbnailUrl": [
+      "https://cdn.supremeuniversal.com/media/Supreme-Villagio--Desktop-Banner-3_IOrvdm.jpg"
+    ],
+    "uploadDate": "2026-08-01T08:00:00+08:00",
+    "contentUrl": "https://www.youtube.com/watch?v=placeholder",
+    "embedUrl": "https://www.youtube.com/embed/placeholder",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Supreme Universal",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.supremeuniversal.com/media/Q9b1g7_Supreme-Villagio-Logo.svg"
+      }
+    }
+  };
+
   const entityGraphJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -243,6 +279,16 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         id={`json-ld-entity-${slugArray.join('-')}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(entityGraphJsonLd) }}
+      />
+            <Script
+        id={`json-ld-breadcrumb-${slugArray.join('-')}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+            <Script
+        id={`json-ld-video-${slugArray.join('-')}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }}
       />
       <LandingPageTemplate 
         heroHeadline1={data.heroHeadline1}

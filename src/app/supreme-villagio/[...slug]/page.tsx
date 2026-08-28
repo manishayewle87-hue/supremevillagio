@@ -185,6 +185,38 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
     }
   };
 
+  const entityGraphJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": data.title,
+    "description": data.description,
+    "url": `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Real Estate",
+        "sameAs": "https://en.wikipedia.org/wiki/Real_estate"
+      },
+      {
+        "@type": "Place",
+        "name": "Pune",
+        "sameAs": "https://en.wikipedia.org/wiki/Pune"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "Villa",
+        "sameAs": "https://en.wikipedia.org/wiki/Villa"
+      },
+      {
+        "@type": "Thing",
+        "name": "Bungalow",
+        "sameAs": "https://en.wikipedia.org/wiki/Bungalow"
+      }
+    ]
+  };
+
   return (
     <>
       <Script
@@ -206,6 +238,11 @@ export default async function DynamicSeoPage({ params }: { params: Promise<{ slu
         id={`json-ld-product-${slugArray.join('-')}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <Script
+        id={`json-ld-entity-${slugArray.join('-')}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(entityGraphJsonLd) }}
       />
       <LandingPageTemplate 
         heroHeadline1={data.heroHeadline1}

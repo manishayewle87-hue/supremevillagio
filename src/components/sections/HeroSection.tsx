@@ -62,7 +62,8 @@ export default function HeroSection({
       <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
         <Image 
           src="https://cdn.supremeuniversal.com/media/Supreme-Villagio--Desktop-Banner-3_IOrvdm.jpg"
-          alt="Supreme Villagio Somatane Pune"
+          alt={`${headlineLine1} ${headlineLine2} - ${subline}`}
+          title={`${headlineLine1} ${headlineLine2}`}
           fill
           priority
           fetchPriority="high"

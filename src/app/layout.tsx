@@ -328,6 +328,11 @@ const localBusinessSchema = {
     "latitude": 18.6936968,
     "longitude": 73.687351
   },
+    "sameAs": [
+    "https://www.google.com/maps/place/Supreme+Villagio/@18.6936968,73.6847761,17z/",
+    "https://www.facebook.com/SupremeUniversal/",
+    "https://www.instagram.com/supremeuniversal/"
+  ],
   "areaServed": [
     {"@type": "City", "name": "Pune"},
     {"@type": "City", "name": "Somatane"},

@@ -140,7 +140,7 @@ export function generateSeoDataFromSlug(slugs: string[]) {
   
   const formattedLoc = titleCase(rawLoc);
   const formattedCat = titleCase(rawCategory);
-  let formattedMod = rawModifier ? titleCase(rawModifier) : "";
+  const formattedMod = rawModifier ? titleCase(rawModifier) : "";
 
   // Advanced grammatical formatting for the title
   let titleString = "";

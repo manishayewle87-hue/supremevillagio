@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { motion } from "framer-motion";
 import { useModal } from "@/contexts/ModalContext";
 import { Maximize2 } from "lucide-react";
+import Image from "next/image";
 
 const FLOOR_PLANS = [
   {

@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Link from 'next/link';
 import { PILLAR_POSTS } from '@/lib/blog-data';
+import Image from "next/image";
 
 export const metadata = {
   title: "Journal | Supreme Villagio Real Estate Market Insights",

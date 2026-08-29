@@ -12,7 +12,7 @@ export default function NriBanner() {
     const cookies = document.cookie.split(';');
     const nriCookie = cookies.find(c => c.trim().startsWith('nri_status='));
     if (nriCookie && nriCookie.split('=')[1] === 'true') {
-      setIsNRI(true);
+      setIsNRI(true); // eslint-disable-line react-hooks/set-state-in-effect
     }
   }, []);
 

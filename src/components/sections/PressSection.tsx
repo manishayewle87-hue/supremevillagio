@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from 'react';
+import Image from "next/image";
 
 const LOGOS = [
   { name: "Economic Times", url: "https://upload.wikimedia.org/wikipedia/commons/4/41/The_Economic_Times_logo.png" },

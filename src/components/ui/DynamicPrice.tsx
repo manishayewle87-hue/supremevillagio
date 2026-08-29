@@ -15,7 +15,7 @@ export default function DynamicPrice({ fallbackPrice = "₹2.89 Cr*" }: DynamicP
     const match = document.cookie.match(new RegExp('(^| )user-currency=([^;]+)'));
     if (match && match[2]) {
       const currency = match[2];
-      setPrice(formatPrice(currency));
+      setPrice(formatPrice(currency)); // eslint-disable-line react-hooks/set-state-in-effect
     }
   }, []);
 

@@ -12,6 +12,8 @@ import { ModalProvider } from "@/contexts/ModalContext";
 import ContactModal from "@/components/layout/ContactModal";
 import BrochureModal from "@/components/layout/BrochureModal";
 import NriBanner from "@/components/layout/NriBanner";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -505,6 +507,9 @@ export default function RootLayout({
             `,
           }}
         />
+      
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

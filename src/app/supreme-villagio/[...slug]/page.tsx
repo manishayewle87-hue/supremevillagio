@@ -46,6 +46,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     alternates: {
       canonical: `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+      languages: {
+        'en-US': `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+        'en-GB': `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+        'en-AE': `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+        'en-IN': `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+        'x-default': `https://www.supremesvillagio.com/supreme-villagio/${urlPath}`,
+      },
     }
   };
 }

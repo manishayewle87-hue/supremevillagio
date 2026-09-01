@@ -59,7 +59,8 @@ export default function BrochureModal() {
         
         // Trigger the actual PDF download
         const link = document.createElement("a");
-        link.href = "/brochure.pdf";
+        // Cloudflare blocks local files > 25MB, routing this through your existing CDN
+        link.href = "https://cdn.supremeuniversal.com/media/supreme-villagio-brochure.pdf";
         link.download = "Supreme-Villagio-Brochure.pdf";
         link.target = "_blank";
         document.body.appendChild(link);

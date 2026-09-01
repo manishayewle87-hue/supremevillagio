@@ -55,5 +55,8 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "vercel": "^59.10.0"
+  },
+  "overrides": {
+    "next": "$next"
   }
 }

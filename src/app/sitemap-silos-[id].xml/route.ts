@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { getAllSeoSlugStrings } from '@/lib/seo-data';
 import { NextRequest } from 'next/server';
 

@@ -5,6 +5,7 @@ import { generateSeoDataFromSlug, generateSeoSlugs, isValidSeoSlug, getRelatedSl
 import Script from 'next/script';
 import { notFound } from 'next/navigation';
 
+export const runtime = 'edge';
 export const dynamicParams = true; // Enables On-Demand ISR for 12,000+ pages
 export const revalidate = 86400; // ISR Revalidate every 24 hours
 

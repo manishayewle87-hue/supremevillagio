@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Extract country from Vercel Edge Geo IP headers (fallback to 'IN' for local dev)
-  const country = request.geo?.country || request.headers.get('x-vercel-ip-country') || 'IN';
+  // Extract country from Cloudflare Edge Geo IP headers (fallback to 'IN' for local dev)
+  const country = request.geo?.country || request.headers.get('cf-ipcountry') || 'IN';
   
   // Clone the request headers and append our custom geo header
   const requestHeaders = new Headers(request.headers);

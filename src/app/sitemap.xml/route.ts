@@ -1,3 +1,4 @@
+export const runtime = "edge";
 export async function GET() {
   const baseUrl = 'https://www.supremesvillagio.com';
   const lastModified = new Date().toISOString();
